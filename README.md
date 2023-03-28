@@ -45,3 +45,6 @@ Here's the result after "flipping the switch"
 <p align="center">Finished Creating Volume 2</p>
 <p align="center"><img src="/images/13-finished-3.png"></p>
 
+<p align="center">Gotta fix this too</p>
+<p align="center"><img src="/images/15-gotta-fix-this-too.png</p>
+
