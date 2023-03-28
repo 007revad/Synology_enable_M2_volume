@@ -40,8 +40,8 @@ Here's the result after "flipping the switch"
 <p align="center"><img src="/images/10-we-have-a-m2.storage-pool-2.png"></p>
 
 <p align="center">Create Volume 2</p>
-<p align="center"><img src="/images/11-create-volume-2.png"></p>
+<p align="center"><img src="/images/11-create-volume-3.png"></p>
 
 <p align="center">Finished Creating Volume 2</p>
-<p align="center"><img src="/images/13-finished-2.png"></p>
+<p align="center"><img src="/images/13-finished-3.png"></p>
 
