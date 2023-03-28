@@ -16,9 +16,6 @@ Here's the result after "flipping the switch"
 <p align="center">After reboot I got some notifications saying the M.2 drives can be managed</p>
 <p align="center"><img src="/images/1b-after-reboot.png"></p>
 
-<p align="center">Gotta fix this one if it becomes frequent</p>
-<p align="center"><img src="/images/14-gotta-fix-this.png"></p>
-
 <p align="center">No M2 Storage Pool or Volume yet</p>
 <p align="center"><img src="/images/2-no-m2-volume-yet.png"></p>
 
@@ -45,6 +42,11 @@ Here's the result after "flipping the switch"
 <p align="center">Finished Creating Volume 2</p>
 <p align="center"><img src="/images/13-finished-3.png"></p>
 
+### Things too do
+
+<p align="center">Gotta fix this one if it becomes frequent</p>
+<p align="center"><img src="/images/14-gotta-fix-this.png"></p>
+
 <p align="center">Gotta fix this too</p>
-<p align="center"><img src="/images/15-gotta-fix-this-too.png</p>
+<p align="center"><img src="/images/15-gotta-fix-this-too.png"></p>
 
