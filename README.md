@@ -1,17 +1,41 @@
-# Synology M2 volume enable
+# Synology enable M2 volume
 
-<a href="https://github.com/007revad/Synology_M2_volume_enable/releases"><img src="https://img.shields.io/github/release/007revad/Synology_M2_volume_enable.svg"></a>
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F007revad%2FSynology_M2_volume_enableh&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
+<a href="https://github.com/007revad/Synology_enable_M2_volume/releases"><img src="https://img.shields.io/github/release/007revad/Synology_enable_M2_volume.svg"></a>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F007revad%2FSynology_enable_M2_volumeh&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
 
 ### Description
 
 Enable creating volumes with non-Synology M.2 drives
 
-Yes it is possible :) Watch this space...
+This script will enable creating M.2 storage pools and volumes all from within Storage Manager.
 
-Will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and  DSM 7.0)
+Will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even DSM 7.0). As for which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for cteating M.2 volumes.
 
-Here's the result after "flipping the switch"
+**Confirmed working on:**
+
+| Model        | DSM version              |
+| ------------ |--------------------------|
+| DS923+       | DSM 7.1.1-42962 Update 4 |
+| DS1821+      | DSM 7.2-64213 Beta       |
+| DS1821+      | DSM 7.1.1-42962 Update 4 |
+
+### To run the script ###
+
+```YAML
+sudo -i /volume1/scripts/syno_enable_m2_volume.sh
+```
+
+**Note:** Replace /volume1/scripts/ with the path to where the script is located.
+
+**Options:**
+```YAML
+  -c, --check      Check value in file and backup file
+  -r, --restore    Restore backup to undo changes
+  -h, --help       Show this help message
+  -v, --version    Show the script version
+```
+
+Here's the result after "flipping the switch" and rebooting. Note that the stroage pool is being created in Storage Manager and there's no Online Assembly needed.
 
 <p align="center">After reboot I got some notifications saying the M.2 drives can be managed</p>
 <p align="center"><img src="/images/1b-after-reboot.png"></p>
