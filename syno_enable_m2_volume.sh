@@ -268,8 +268,8 @@ fi
 rebootmsg(){
     # Reboot prompt
     echo -e "\n${Cyan}The Synology needs to restart.${Off}"
+    echo -e "You ${Red}MUST${Off} reboot via SSH or the power button on the NAS."
     echo -e "Type ${Cyan}yes${Off} to reboot now."
-    echo -e "Type anything else to quit (if you will restart it yourself)."
     read -r answer
     if [[ ${answer,,} != "yes" ]]; then exit; fi
 
@@ -414,7 +414,7 @@ if [[ $check == "yes" ]]; then
         hexstring="80 3E 00 B8 01 00 00 00 75 2"
         findbytes "$file"
         if [[ $bytes =~ "752"[0-9] ]]; then
-            echo -e "\nFile is unedited."
+            echo -e "\n${Cyan}File is unedited.${Off}"
         else
             echo -e "\n${Red}hex string not found!${Off}"
             err=1
