@@ -19,6 +19,31 @@ Will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even DS
 | DS1821+      | DSM 7.2-64213 Beta       |
 | DS1821+      | DSM 7.1.1-42962 Update 4 |
 
+### How to use this script ###
+
+1. Run the script and let it reboot the Synology.
+2. Go to Storage Manager and create your M.2 storage pool and volume.
+3. Run the script again with the -r or --restore option to undo the changes and let it reboot the Synology:
+    ```YAML
+    sudo -i /volume1/scripts/syno_enable_m2_volume.sh --restore
+    ```
+    This prevents the <a href="/images/14-gotta-fix-this.png">drive database outdated</a> notifications and the <a href="/images/15-gotta-fix-this-too.png">unrecognised firmware version</a> warnings in Storage Manager > HDD/SSD.
+4. If after the reboot if you want to check that the setting in the file was restored just run the script with -c or --check option:
+    ```YAML
+    sudo -i /volume1/scripts/syno_enable_m2_volume.sh --check
+    ```
+
+### The good news ###
+
+If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
+
+### Known issues in v.0.0.1 beta ###
+
+1. You **MUST** let the script reboot the NAS. If you don't then you won't be able to restart the NAS from the DSM UI (it just continues showing "Restarting..." and nothing happens.
+    - If you exit the shell window without letting the script reboot the NAS you can either press the power button on the Synology or log back in via SSH, type reboot and press enter.
+2. If you go into "Control Panel > Shared Folders" before you've rebooted the Synology the Shared Folders window will be blank.
+
+
 ### To run the script ###
 
 ```YAML
@@ -65,12 +90,3 @@ Here's the result after "flipping the switch" and rebooting. Note that the stroa
 
 <p align="center">Finished Creating Volume 2</p>
 <p align="center"><img src="/images/13-finished-3.png"></p>
-
-### Things too do
-
-<p align="center">Gotta fix this one if it becomes frequent</p>
-<p align="center"><img src="/images/14-gotta-fix-this.png"></p>
-
-<p align="center">Gotta fix this too</p>
-<p align="center"><img src="/images/15-gotta-fix-this-too.png"></p>
-
