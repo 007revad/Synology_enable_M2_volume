@@ -19,6 +19,17 @@ Will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even DS
 | DS1821+      | DSM 7.2-64213 Beta       |
 | DS1821+      | DSM 7.1.1-42962 Update 4 |
 
+### Requirements ###
+
+Because the bc command is not included in DSM you need to install **SynoCli misc. Tools** from SynoCommunity for this script to work.
+
+1. Package Center > Settings > Package Sources > Add
+2. Name: SynoCommunity
+3. Location: `https://packages.synocommunity.com/`
+4. Click OK and OK again.
+5. Click Community on the left.
+6. Install **SynoCli misc. Tools**
+
 ### How to use this script ###
 
 1. Run the script and let it reboot the Synology.
