@@ -135,10 +135,12 @@ model=$(cat /proc/sys/kernel/syno_hw_version)
 productversion=$(get_key_value /etc.defaults/VERSION productversion)
 buildphase=$(get_key_value /etc.defaults/VERSION buildphase)
 buildnumber=$(get_key_value /etc.defaults/VERSION buildnumber)
+smallfixnumber=$(get_key_value /etc.defaults/VERSION smallfixnumber)
 
 # Show DSM full version and model
 if [[ $buildphase == GM ]]; then buildphase=""; fi
-echo -e "$model DSM $productversion-$buildnumber $buildphase\n"
+if [[ $smallfixnumber -gt "0" ]]; then smallfix="-$smallfixnumber"; fi
+echo -e "$model DSM $productversion-$buildnumber$smallfix $buildphase\n"
 
 
 #------------------------------------------------------------------------------
