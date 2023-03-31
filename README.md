@@ -16,6 +16,7 @@ Will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even DS
 | Model        | DSM version              |
 | ------------ |--------------------------|
 | DS923+       | DSM 7.1.1-42962 Update 4 |
+| DS1821+      | DSM 7.2-64216 Beta       |          |
 | DS1821+      | DSM 7.2-64213 Beta       |
 | DS1821+      | DSM 7.1.1-42962 Update 4 |
 
