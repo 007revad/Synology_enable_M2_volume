@@ -23,7 +23,7 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
 ### How is this different to my <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
 - **Synology_enable_M2_volume:**
-    - Allows you to create a storage pool and volume all from within Storage Manager.
+    - Allows you to create an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
     - Works with DSM 7.2 beta and 7.1.1 (may work with DSM 7.1 and 7.0).
     - Works with any brand M.2 drives.
     - May only work with models Synology listed as supporting M.2 volumes.
