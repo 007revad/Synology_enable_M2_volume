@@ -45,7 +45,7 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
 | Ease of use              | Easy                                              | Medium                            |
 | Prompts for answers      | No                                                | Yes, multiple times               |
 | Online Assemble required | No                                                | Yes                               |
-| RAID levels supported    | Basic, RAID 0, RAID 1, SHR, JBOD                  | Basic, RAID 0, RAID 1, RAID 5     |
+| RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**          | Basic, RAID 0, RAID 1, **RAID 5** |
 | Non-Synology M.2 drives  | Yes                                               | Yes                               |
 | DSM version              | DSM 7.2 beta and 7.1.1, and maybe DSM 7.1 and 7.0 | Any DSM version (DSM 6 is WIP)    |
 | Synology Models          | Maybe only models listed as supported by Synology | Any with M.2 slots or M.2 cards   |
