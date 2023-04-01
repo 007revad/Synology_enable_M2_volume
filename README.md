@@ -65,9 +65,9 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
 
 ### The good news
 
-If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
+If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 
-Your also volume survives reboots and DSM updates.
+Your volume also survives reboots and DSM updates.
 
 ### Known issues in v.1.0.3
 
