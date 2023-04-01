@@ -40,6 +40,17 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
     - Works with any brand M.2 drives.
     - Works with any Synology model that has M.2 slots or can install a PCIe M.2 card.
 
+| Feature                  | Synology_enable_M2_volume                         | Synology_M2_volume                |
+|--------------------------|---------------------------------------------------|-----------------------------------|
+| Ease of use              | Easy                                              | Medium                            |
+| Prompts for answers      | No                                                | Yes, multiple times               |
+| Online Assemble required | No                                                | Yes                               |
+| RAID levels supported    | Basic, RAID 0, RAID 1, SHR, JBOD                  | Basic, RAID 0, RAID 1, RAID 5     |
+| Non-Synology M.2 drives  | Yes                                               | Yes                               |
+| DSM version              | DSM 7.2 beta and 7.1.1, and maybe DSM 7.1 and 7.0 | Any DSM version (DSM 6 is WIP)    |
+| Synology Models          | Maybe only models listed as supported by Synology | Any with M.2 slots or M.2 cards   |
+| What it does             | Temporarily changes 1 file in DSM                 | Creates partitons on M.2 drive(s) |
+
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 
 Your volume also survives reboots and DSM updates.
