@@ -23,7 +23,7 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
 - **Synology_enable_M2_volume:**
-    - Allows you to create an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
+    - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
     - Gives you the option of **SHR and JBOD**, as well as RAID 0, RAID 1 and Basic. And maybe RAID 5 and SHR-2 if you have 4 M.2 drives.
     - Works with DSM 7.2 beta and 7.1.1 (may work with DSM 7.1 and 7.0).
     - Works with any brand M.2 drives.
