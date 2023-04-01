@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v0.0.1"
+scriptver="v1.0.3"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 
@@ -378,10 +378,10 @@ findbytes(){
             echo "${array[$num]} = $poshex"  # debug
 
             seek="${array[$num]}"
-            xxd=$(xxd -u -l 12 -s "$((seek -2))" "$1")
+            xxd=$(xxd -u -l 12 -s "$seek" "$1")
             #echo "$xxd"  # debug
             printf %s "$xxd" | cut -d" " -f1-7
-            bytes=$(printf %s "$xxd" | cut -d" " -f7)
+            bytes=$(printf %s "$xxd" | cut -d" " -f6)
             #echo "$bytes"  # debug
 
             num=$((num +1))
@@ -391,10 +391,10 @@ findbytes(){
         echo "$match = $poshex"  # debug
 
         seek="$match"
-        xxd=$(xxd -u -l 12 -s "$((seek -2))" "$1")
+        xxd=$(xxd -u -l 12 -s "$seek" "$1")
         #echo "$xxd"  # debug
         printf %s "$xxd" | cut -d" " -f1-7
-        bytes=$(printf %s "$xxd" | cut -d" " -f7)
+        bytes=$(printf %s "$xxd" | cut -d" " -f6)
         #echo "$bytes"  # debug
     else
         bytes=""
@@ -408,12 +408,12 @@ if [[ $check == "yes" ]]; then
 
     # Check value in file
     echo -e "\nChecking value in file."
-    hexstring="80 3E 00 B8 01 00 00 00 90 90"
+    hexstring="80 3E 00 B8 01 00 00 00 90 90 48 8B"
     findbytes "$file"
     if [[ $bytes == "9090" ]]; then
         echo -e "\n${Cyan}File already edited.${Off}"
     else
-        hexstring="80 3E 00 B8 01 00 00 00 75 2"
+        hexstring="80 3E 00 B8 01 00 00 00 75 2. 48 8B"
         findbytes "$file"
         if [[ $bytes =~ "752"[0-9] ]]; then
             echo -e "\n${Cyan}File is unedited.${Off}"
@@ -426,12 +426,12 @@ if [[ $check == "yes" ]]; then
     # Check value in backup file
     if [[ -f ${file}.bak ]]; then
         echo -e "\nChecking value in backup file."
-        hexstring="80 3E 00 B8 01 00 00 00 75 2"
+        hexstring="80 3E 00 B8 01 00 00 00 75 2. 48 8B"
         findbytes "${file}.bak"
         if [[ $bytes =~ "752"[0-9] ]]; then
             echo -e "\n${Cyan}Backup file is unedited.${Off}"
         else
-            hexstring="80 3E 00 B8 01 00 00 00 90 90"
+            hexstring="80 3E 00 B8 01 00 00 00 90 90 48 8B"
             findbytes "${file}.bak"
             if [[ $bytes == "9090" ]]; then
                 echo -e "\n${Red}Backup file has been edited!${Off}"
@@ -452,7 +452,7 @@ echo -e "\nChecking file."
 
 
 # Check if the file is already edited
-hexstring="80 3E 00 B8 01 00 00 00 90 90"
+hexstring="80 3E 00 B8 01 00 00 00 90 90 48 8B"
 findbytes "$file"
 if [[ $bytes == "9090" ]]; then
     echo -e "\n${Cyan}File already edited.${Off}"
@@ -460,7 +460,7 @@ if [[ $bytes == "9090" ]]; then
 else
 
     # Check if the file is okay for editing
-    hexstring="80 3E 00 B8 01 00 00 00 75 2"
+    hexstring="80 3E 00 B8 01 00 00 00 75 2. 48 8B"
     findbytes "$file"
     if [[ $bytes =~ "752"[0-9] ]]; then
         echo -e "\nEditing file."
@@ -483,7 +483,7 @@ fi
 # Check if file was successfully edited
 
 echo -e "\nChecking if file was successfully edited."
-hexstring="80 3E 00 B8 01 00 00 00 90 90"
+hexstring="80 3E 00 B8 01 00 00 00 90 90 48 8B"
 findbytes "$file"
 if [[ $bytes == "9090" ]]; then
     echo -e "File successfully edited."
