@@ -38,7 +38,17 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
     - Works with any brand M.2 drives.
     - Works with any Synology model that has M.2 slots or can install a PCIe M.2 card.
 
-### Requirements
+If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
+
+Your volume also survives reboots and DSM updates.
+
+## Known issues in v.1.0.3
+
+1. You **MUST** let the script reboot the NAS. If you don't then you won't be able to restart the NAS from the DSM UI (it just continues showing "Restarting..." and never actually reboots).
+    - If you exit the shell window without letting the script reboot the NAS you can either press the power button on the Synology or log back in via SSH, type **reboot** and press enter.
+2. If you go into "Control Panel > Shared Folders" before you've rebooted the Synology the Shared Folders window will be blank.
+
+## Requirements
 
 Because the bc command is not included in DSM you need to install **SynoCli misc. Tools** from SynoCommunity for this script to work.
 
@@ -48,19 +58,6 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
 4. Click OK and OK again.
 5. Click Community on the left.
 6. Install **SynoCli misc. Tools**
-
-### The good news
-
-If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
-
-Your volume also survives reboots and DSM updates.
-
-### Known issues in v.1.0.3
-
-1. You **MUST** let the script reboot the NAS. If you don't then you won't be able to restart the NAS from the DSM UI (it just continues showing "Restarting..." and never actually reboots).
-    - If you exit the shell window without letting the script reboot the NAS you can either press the power button on the Synology or log back in via SSH, type **reboot** and press enter.
-2. If you go into "Control Panel > Shared Folders" before you've rebooted the Synology the Shared Folders window will be blank.
-
 
 ## To run the script
 **Note:** Replace /volume1/scripts/ with the path to where the script is located.
