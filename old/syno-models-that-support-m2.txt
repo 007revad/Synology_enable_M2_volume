@@ -1,3 +1,5 @@
+Synology NAS models with internal M.2 slots or that support M.2 PCie cards
+
 DS1019+
 DS1517+
 DS1520+
