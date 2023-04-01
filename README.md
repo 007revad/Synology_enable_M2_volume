@@ -20,7 +20,7 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
 | DS1821+      | DSM 7.2-64213 Beta       |
 | DS1821+      | DSM 7.1.1-42962 Update 4 |
 
-### How is this different to my <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
+### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
 - **Synology_enable_M2_volume:**
     - Allows you to create an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
