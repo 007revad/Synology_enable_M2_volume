@@ -34,6 +34,7 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
     - Requires you to do an Online Assemble in Storage Manager before you can create your volume.
     - Works with any DSM version (DSM 6 is still WIP).
     - Works with any brand M.2 drives.
+    - Works with any Synology modle that has M.2 slots or can install a PCIe M.2 card.
 
 ### Requirements
 
