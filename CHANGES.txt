@@ -1,2 +1,2 @@
-v0.0.1
-- Development version
+v1.0.3
+- First release
