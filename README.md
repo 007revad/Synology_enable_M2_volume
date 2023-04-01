@@ -62,6 +62,7 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
     ```YAML
     sudo -i /volume1/scripts/syno_enable_m2_volume.sh --check
     ```
+    **Note:** Replace /volume1/scripts/ with the path to where the script is located.
 
 ### The good news
 
