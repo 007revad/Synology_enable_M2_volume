@@ -25,6 +25,7 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
 - **Synology_enable_M2_volume:**
     - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
     - Gives you the option of **SHR and JBOD**, as well as RAID 0, RAID 1 and Basic. And maybe RAID 5 and SHR-2 if you have 4 M.2 drives.
+    - Easiy to run as there a no questions to answer.
     - Works with DSM 7.2 beta and 7.1.1 (may work with DSM 7.1 and 7.0).
     - Works with any brand M.2 drives.
     - May only work with models Synology listed as supporting M.2 volumes.
@@ -33,6 +34,7 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
     - Creates the synology partitions.
     - Creates the storage pool.
     - Requires you to do an Online Assemble in Storage Manager before you can create your volume.
+    - A little more complicated as there are questions that you need to answer.
     - Gives you the option of Basic, RAID 0, RAID 1 and **RAID 5**.
     - Works with any DSM version (DSM 6 is still WIP).
     - Works with any brand M.2 drives.
