@@ -49,21 +49,6 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
 5. Click Community on the left.
 6. Install **SynoCli misc. Tools**
 
-### How to use this script
-
-1. Run the script and let it reboot the Synology.
-2. Go to Storage Manager and create your M.2 storage pool and volume(s).
-3. Run the script again with the -r or --restore option to undo the changes and let it reboot the Synology:
-    ```YAML
-    sudo -i /volume1/scripts/syno_enable_m2_volume.sh --restore
-    ```
-    This prevents the <a href="/images/14-gotta-fix-this.png">drive database outdated</a> notifications and the <a href="/images/15-gotta-fix-this-too.png">unrecognised firmware version</a> warnings in Storage Manager > HDD/SSD.
-4. If after the reboot if you want to check that the setting in the file was restored just run the script with -c or --check option:
-    ```YAML
-    sudo -i /volume1/scripts/syno_enable_m2_volume.sh --check
-    ```
-    **Note:** Replace /volume1/scripts/ with the path to where the script is located.
-
 ### The good news
 
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
@@ -77,13 +62,20 @@ Your volume also survives reboots and DSM updates.
 2. If you go into "Control Panel > Shared Folders" before you've rebooted the Synology the Shared Folders window will be blank.
 
 
-### To run the script ###
+### To run the script
 
-```YAML
-sudo -i /volume1/scripts/syno_enable_m2_volume.sh
-```
-
-**Note:** Replace /volume1/scripts/ with the path to where the script is located.
+1. Run the script and let it reboot the Synology.
+2. Go to Storage Manager and create your M.2 storage pool and volume(s).
+3. Run the script again with the -r or --restore option to undo the changes and let it reboot the Synology:
+    ```YAML
+    sudo -i /volume1/scripts/syno_enable_m2_volume.sh --restore
+    ```
+    This prevents the <a href="/images/14-gotta-fix-this.png">drive database outdated</a> notifications and the <a href="/images/15-gotta-fix-this-too.png">unrecognised firmware version</a> warnings in Storage Manager > HDD/SSD.
+4. If after the reboot if you want to check that the setting in the file was restored just run the script with -c or --check option:
+    ```YAML
+    sudo -i /volume1/scripts/syno_enable_m2_volume.sh --check
+    ```
+    **Note:** Replace /volume1/scripts/ with the path to where the script is located.
 
 **Options:**
 ```YAML
