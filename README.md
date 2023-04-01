@@ -9,7 +9,7 @@ Enable creating volumes with non-Synology M.2 drives
 
 This script will enable creating M.2 storage pools and volumes all from within Storage Manager.
 
-Will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even DSM 7.0). As for which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for cteating M.2 volumes.
+It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even DSM 7.0). As for which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for creating M.2 volumes... but I suspect it will work with any Synology model that has M.2 slots or a PCIe card with M.2 slots.
 
 **Confirmed working on:**
 
@@ -20,7 +20,22 @@ Will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even DS
 | DS1821+      | DSM 7.2-64213 Beta       |
 | DS1821+      | DSM 7.1.1-42962 Update 4 |
 
-### Requirements ###
+### How is this different to my <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
+
+- Synology enable M2 volume:
+    - Enables creating the storage pool and volume completely within Storage Manager.
+    - Works with DSM 7.2 beta and 7.1.1 (may work with DSM 7.1 and 7.0).
+    - Works with any brand M.2 drives.
+    - May only work with models Synology listed as supporting M.2 volumes.
+
+- <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a>:
+    - Creates the synology partitions.
+    - Creates the storage pool.
+    - Requires you to do an Online Assemble in Storage Manager before you can create your volume.
+    - Works with any DSM version (DSM 6 is still WIP).
+    - Works with any brand M.2 drives.
+
+### Requirements
 
 Because the bc command is not included in DSM you need to install **SynoCli misc. Tools** from SynoCommunity for this script to work.
 
@@ -31,10 +46,10 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
 5. Click Community on the left.
 6. Install **SynoCli misc. Tools**
 
-### How to use this script ###
+### How to use this script
 
 1. Run the script and let it reboot the Synology.
-2. Go to Storage Manager and create your M.2 storage pool and volume.
+2. Go to Storage Manager and create your M.2 storage pool and volume(s).
 3. Run the script again with the -r or --restore option to undo the changes and let it reboot the Synology:
     ```YAML
     sudo -i /volume1/scripts/syno_enable_m2_volume.sh --restore
@@ -45,14 +60,16 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
     sudo -i /volume1/scripts/syno_enable_m2_volume.sh --check
     ```
 
-### The good news ###
+### The good news
 
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 
-### Known issues in v.0.0.1 beta ###
+Your also volume survives reboots and DSM updates.
 
-1. You **MUST** let the script reboot the NAS. If you don't then you won't be able to restart the NAS from the DSM UI (it just continues showing "Restarting..." and nothing happens.
-    - If you exit the shell window without letting the script reboot the NAS you can either press the power button on the Synology or log back in via SSH, type reboot and press enter.
+### Known issues in v.1.0.3
+
+1. You **MUST** let the script reboot the NAS. If you don't then you won't be able to restart the NAS from the DSM UI (it just continues showing "Restarting..." and never actually reboots).
+    - If you exit the shell window without letting the script reboot the NAS you can either press the power button on the Synology or log back in via SSH, type **reboot** and press enter.
 2. If you go into "Control Panel > Shared Folders" before you've rebooted the Synology the Shared Folders window will be blank.
 
 
@@ -72,7 +89,7 @@ sudo -i /volume1/scripts/syno_enable_m2_volume.sh
   -v, --version    Show the script version
 ```
 
-Here's the result after "flipping the switch" and rebooting. Note that the stroage pool is being created in Storage Manager and there's no Online Assembly needed.
+Here's the result after running the script and rebooting. Note that the stroage pool is being created in Storage Manager and there's no Online Assembly needed.
 
 <p align="center">After reboot I got some notifications saying the M.2 drives can be managed</p>
 <p align="center"><img src="/images/1b-after-reboot.png"></p>
@@ -102,3 +119,8 @@ Here's the result after "flipping the switch" and rebooting. Note that the stroa
 
 <p align="center">Finished Creating Volume 2</p>
 <p align="center"><img src="/images/13-finished-3.png"></p>
+
+**Credits**
+- K4LO from the XPenology forum.
+- @prt1999 for pointing me to K4LO
+
