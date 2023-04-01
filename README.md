@@ -62,11 +62,14 @@ Your volume also survives reboots and DSM updates.
 2. If you go into "Control Panel > Shared Folders" before you've rebooted the Synology the Shared Folders window will be blank.
 
 
-### To run the script
-
-1. Run the script and let it reboot the Synology.
+## To run the script
+**Note:** Replace /volume1/scripts/ with the path to where the script is located.
+1. Run the script and let it reboot the Synology:
+    ```YAML
+    sudo -i /volume1/scripts/syno_enable_m2_volume.sh
+    ```
 2. Go to Storage Manager and create your M.2 storage pool and volume(s).
-3. Run the script again with the -r or --restore option to undo the changes and let it reboot the Synology:
+3. Run the script again with the -r or --restore option to undo the change it made and let it reboot the Synology:
     ```YAML
     sudo -i /volume1/scripts/syno_enable_m2_volume.sh --restore
     ```
@@ -75,7 +78,6 @@ Your volume also survives reboots and DSM updates.
     ```YAML
     sudo -i /volume1/scripts/syno_enable_m2_volume.sh --check
     ```
-    **Note:** Replace /volume1/scripts/ with the path to where the script is located.
 
 **Options:**
 ```YAML
