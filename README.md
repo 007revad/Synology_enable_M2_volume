@@ -85,7 +85,9 @@ Your volume also survives reboots and DSM updates.
   -v, --version    Show the script version
 ```
 
-Here's the result after running the script and rebooting. Note that the stroage pool is being created in Storage Manager and there's no Online Assembly needed.
+## Screenshots
+
+Here's the result after running the script and rebooting. Note that the stroage pool is being created in Storage Manager and there's no Online Assembly needed. SHR and JBOD are also available.
 
 <p align="center">After reboot I got some notifications saying the M.2 drives can be managed</p>
 <p align="center"><img src="/images/1b-after-reboot.png"></p>
