@@ -17,7 +17,7 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
 | ------------ |--------------------------|
 | DS923+       | DSM 7.1.1-42962 Update 4 |
 | DS1821+      | DSM 7.2-64216 Beta       |
-| DS1821+      | DSM 7.2-64213 Beta       |
+| DS1821+      | <a href=known_issues.md>DSM 7.2-64213 Beta *</a>  |
 | DS1821+      | DSM 7.1.1-42962 Update 4 |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
@@ -54,14 +54,6 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 
 Your volume also survives reboots and DSM updates.
-
-## Known issues in DSM 7.2-64213 Beta
-
-***DSM 7.2-64216 Beta is okay***
-
-1. You **MUST** let the script reboot the NAS. If you don't then you won't be able to restart the NAS from the DSM UI (it just continues showing "Restarting..." and never actually reboots).
-    - If you exit the shell window without letting the script reboot the NAS you can either press the power button on the Synology or log back in via SSH, type **reboot** and press enter.
-2. If you go into "Control Panel > Shared Folders" before you've rebooted the Synology the Shared Folders window will be blank.
 
 ## Requirements
 
