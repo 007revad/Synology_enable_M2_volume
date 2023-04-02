@@ -1,2 +1,5 @@
+v1.0.4
+- Changed reboot message
+
 v1.0.3
 - First release

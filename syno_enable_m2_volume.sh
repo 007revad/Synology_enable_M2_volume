@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.0.3"
+scriptver="v1.0.4"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 
@@ -270,8 +270,8 @@ fi
 rebootmsg(){
     # Reboot prompt
     echo -e "\n${Cyan}The Synology needs to restart.${Off}"
-    echo -e "You ${Red}MUST${Off} reboot via SSH or the power button on the NAS."
     echo -e "Type ${Cyan}yes${Off} to reboot now."
+    echo -e "Type anything else to quit (if you will restart it yourself)."
     read -r answer
     if [[ ${answer,,} != "yes" ]]; then exit; fi
 
