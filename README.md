@@ -55,7 +55,9 @@ If you run this script then use Storage Manager to create your M.2 storage pool 
 
 Your volume also survives reboots and DSM updates.
 
-## Known issues in v.1.0.3
+## Known issues in DSM 7.2-64213 Beta
+
+***DSM 7.2-64216 Beta is okay***
 
 1. You **MUST** let the script reboot the NAS. If you don't then you won't be able to restart the NAS from the DSM UI (it just continues showing "Restarting..." and never actually reboots).
     - If you exit the shell window without letting the script reboot the NAS you can either press the power button on the Synology or log back in via SSH, type **reboot** and press enter.
@@ -74,12 +76,12 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
 
 ## To run the script
 **Note:** Replace /volume1/scripts/ with the path to where the script is located.
-1. Run the script and let it reboot the Synology:
+1. Run the script then reboot the Synology:
     ```YAML
     sudo -i /volume1/scripts/syno_enable_m2_volume.sh
     ```
 2. Go to Storage Manager and create your M.2 storage pool and volume(s).
-3. Run the script again with the -r or --restore option to undo the change it made and let it reboot the Synology:
+3. Run the script again with the -r or --restore option to undo the change it made and then reboot the Synology:
     ```YAML
     sudo -i /volume1/scripts/syno_enable_m2_volume.sh --restore
     ```
