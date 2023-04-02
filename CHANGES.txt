@@ -1,5 +1,5 @@
 v1.0.4
-- Chnaged reboot message
+- Changed reboot message
 
 v1.0.3
 - First release
