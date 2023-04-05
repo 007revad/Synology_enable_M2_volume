@@ -66,22 +66,16 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
 5. Click Community on the left.
 6. Install **SynoCli misc. Tools**
 
-## To run the script
+## How to run the script
+
+### Running the script via SSH
+
 **Note:** Replace /volume1/scripts/ with the path to where the script is located.
 1. Run the script then reboot the Synology:
     ```YAML
     sudo -i /volume1/scripts/syno_enable_m2_volume.sh
     ```
 2. Go to Storage Manager and create your M.2 storage pool and volume(s).
-3. Run the script again with the -r or --restore option to undo the change it made and then reboot the Synology:
-    ```YAML
-    sudo -i /volume1/scripts/syno_enable_m2_volume.sh --restore
-    ```
-    This prevents the <a href="/images/14-gotta-fix-this.png">drive database outdated</a> notifications and the <a href="/images/15-gotta-fix-this-too.png">unrecognised firmware version</a> warnings in Storage Manager > HDD/SSD.
-4. If after the reboot if you want to check that the setting in the file was restored just run the script with -c or --check option:
-    ```YAML
-    sudo -i /volume1/scripts/syno_enable_m2_volume.sh --check
-    ```
 
 **Options:**
 ```YAML
@@ -90,6 +84,24 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
   -h, --help       Show this help message
   -v, --version    Show the script version
 ```
+
+**Extra Steps:**
+
+To get rid of <a href="images/notification.png">drive database outdated</a> notifications and <a href=images/before_running_syno_hdd_db.png>unrecognised firmware</a> warnings run <a href=https://github.com/007revad/Synology_HDD_db>Synology_HDD_db</a> which will add your drives to DSM's compatibile drive databases, and prevent the drive compatability databases being updated between DSM updates.
+
+```YAML
+sudo -i /path-to-script/syno_hdd_db.sh --noupdate
+```
+
+### What about DSM updates?
+
+After any DSM update you will need to run this script, and the Synology_HDD_db script again. 
+
+### Schedule the script to run at shutdown
+
+Or you can schedule both Synology_enable_Deduplication and Synology_HDD_db to run when the Synology shuts down, to avoid having to remember to run both scripts after a DSM update.
+
+See <a href=how_to_schedule.md/>How to schedule a script in Synology Task Manager</a>
 
 ## Screenshots
 
