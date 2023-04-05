@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.0.4"
+scriptver="v1.0.5"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 
@@ -86,12 +86,14 @@ if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -a \
                 break
                 ;;
             *)                  # Show usage options
-                echo "Invalid option '$1'"
+                echo -e "Invalid option '$1'\n"
                 usage "$1"
                 ;;
         esac
         shift
     done
+else
+    usage
 fi
 
 
