@@ -1,4 +1,5 @@
 v1.0.5
+- Changed to show usage if invalid long option used instead of continuing.
 - Show the options used.
 
 v1.0.4
