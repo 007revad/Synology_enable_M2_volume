@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.0.4"
+scriptver="v1.0.5"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 
@@ -53,6 +53,10 @@ $script $scriptver - by 007revad
 See https://github.com/$repo
 EOF
 }
+
+
+# Save options used
+args="$@"
 
 
 # Check for flags with getopt
@@ -141,6 +145,9 @@ smallfixnumber=$(get_key_value /etc.defaults/VERSION smallfixnumber)
 if [[ $buildphase == GM ]]; then buildphase=""; fi
 if [[ $smallfixnumber -gt "0" ]]; then smallfix="-$smallfixnumber"; fi
 echo -e "$model DSM $productversion-$buildnumber$smallfix $buildphase\n"
+
+# Show options used
+echo "Using options: $args"
 
 
 #------------------------------------------------------------------------------
