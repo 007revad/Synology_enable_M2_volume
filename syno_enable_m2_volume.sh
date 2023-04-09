@@ -55,6 +55,10 @@ EOF
 }
 
 
+# Save options used
+args="$@"
+
+
 # Check for flags with getopt
 if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -a \
     -l check,restore,help,version,log,debug -- "$@")"; then
@@ -143,6 +147,9 @@ smallfixnumber=$(get_key_value /etc.defaults/VERSION smallfixnumber)
 if [[ $buildphase == GM ]]; then buildphase=""; fi
 if [[ $smallfixnumber -gt "0" ]]; then smallfix="-$smallfixnumber"; fi
 echo -e "$model DSM $productversion-$buildnumber$smallfix $buildphase\n"
+
+# Show options used
+echo "Using options: $args"
 
 
 #------------------------------------------------------------------------------
