@@ -14,15 +14,16 @@ It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even
 
 **Confirmed working on:**
 
-| Model        | DSM version              |
-| ------------ |--------------------------|
-| DS923+       | DSM 7.1.1-42962 Update 4 |
-| DS3622xs+    | DSM 7.2-64216 Beta       |
-| DS3622xs+    | DSM 7.1.1-42962 Update 4 |
-| RS4021xs+    | DSM 7.1.1-42962 Update 2 |
-| DS1821+      | DSM 7.2-64216 Beta       |
-| DS1821+      | <a href=known_issues.md>DSM 7.2-64213 Beta *</a>  |
-| DS1821+      | DSM 7.1.1-42962 Update 4 |
+| Model        | DSM version              | Works |
+| ------------ |--------------------------|-------|
+| DS923+       | DSM 7.1.1-42962 Update 4 | yes |
+| DS3622xs+    | DSM 7.2-64216 Beta       | yes |
+| DS3622xs+    | DSM 7.1.1-42962 Update 4 | yes |
+| RS4021xs+    | DSM 7.1.1-42962 Update 2 | yes |
+| DS1821+      | DSM 7.2-64216 Beta       | yes |
+| DS1821+      | <a href=known_issues.md>DSM 7.2-64213 Beta *</a>  | yes |
+| DS1821+      | DSM 7.1.1-42962 Update 4 | ? |
+| DS1522+      | DSM 7.1.1-42962 Update 4 | **NO** |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
