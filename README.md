@@ -72,6 +72,10 @@ Because the bc command is not included in DSM you need to install **SynoCli misc
 5. Click Community on the left.
 6. Install **SynoCli misc. Tools**
 
+### Download the script
+
+See <a href=images/how_to_download_generic.png/>How to download the script</a> for the easiest way to download the script.
+
 ## How to run the script
 
 ### Running the script via SSH
