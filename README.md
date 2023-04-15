@@ -10,19 +10,21 @@ Enable creating volumes with non-Synology M.2 drives
 
 This script will enable creating M.2 storage pools and volumes all from within Storage Manager.
 
-It will work for DSM 7.2 beta and DSM 7.1.1 (and possibly DSM 7.1 and maybe even DSM 7.0). As for which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for creating M.2 volumes... but I suspect it will work with any Synology model that has M.2 slots or a PCIe card with M.2 slots.
+It will work for DSM 7.2 beta and some models running DSM 7.1.1. As for a full list of which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for creating M.2 volumes, and some '21 and newer enterprise models.
 
 **Confirmed working on:**
 
-| Model        | DSM version              |
-| ------------ |--------------------------|
-| DS923+       | DSM 7.1.1-42962 Update 4 |
-| DS3622xs+    | DSM 7.2-64216 Beta       |
-| DS3622xs+    | DSM 7.1.1-42962 Update 4 |
-| RS4021xs+    | DSM 7.1.1-42962 Update 2 |
-| DS1821+      | DSM 7.2-64216 Beta       |
-| DS1821+      | <a href=known_issues.md>DSM 7.2-64213 Beta *</a>  |
-| DS1821+      | DSM 7.1.1-42962 Update 4 |
+| Model        | DSM version              | Works |
+| ------------ |--------------------------|-------|
+| DS923+       | DSM 7.1.1-42962 Update 4 | yes |
+| DS3622xs+    | DSM 7.2-64216 Beta       | yes |
+| DS3622xs+    | DSM 7.1.1-42962 Update 4 | yes |
+| RS4021xs+    | DSM 7.1.1-42962 Update 2 | yes |
+| DS1821+      | DSM 7.2-64216 Beta       | yes |
+| DS1821+      | <a href=known_issues.md>DSM 7.2-64213 Beta *</a>  | yes |
+| DS1821+      | DSM 7.1.1-42962 Update 4 | ? |
+| DS1522+      | DSM 7.1.1-42962 Update 4 | **NO** |
+| DS920+       | DSM 7.1.1-42962 Update 4 | **NO** |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
