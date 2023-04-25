@@ -11,9 +11,15 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.0.5"
+scriptver="v1.0.6"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
+
+# Check BASH variable is is non-empty and posix mode is off, else abort with error.
+[ "$BASH" ] && ! shopt -qo posix || {
+    printf >&2 "This is a bash script, don't run it with sh\n"
+    exit 1
+}
 
 #echo -e "bash version: $(bash --version | head -1 | cut -d' ' -f4)\n"  # debug
 
