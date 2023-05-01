@@ -1,3 +1,11 @@
+v1.0.6
+- Changed so you don't also need to run Synology_HDD_db as well.
+    - Now adds support_m2_pool="yes" if missing in synoinfo.conf (for DSM 7.1.1)
+    - Now checks support_m2_pool is set to yes.
+- Prevent running with "sh scriptname.sh".
+- Added timeout to "reboot now" question so script can be scheduled to run at boot-up.
+- Added ding sound when script exists due to an error.
+
 v1.0.5
 - Changed to show usage if invalid long option used instead of continuing.
 - Show the options used.
