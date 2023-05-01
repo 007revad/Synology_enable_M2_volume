@@ -17,6 +17,7 @@ repo="007revad/Synology_enable_M2_volume"
 
 # Check BASH variable is is non-empty and posix mode is off, else abort with error.
 [ "$BASH" ] && ! shopt -qo posix || {
+    printf \\a
     printf >&2 "This is a bash script, don't run it with sh\n"
     exit 1
 }
@@ -26,7 +27,7 @@ repo="007revad/Synology_enable_M2_volume"
 # Shell Colors
 #Black='\e[0;30m'   # ${Black}
 Red='\e[0;31m'      # ${Red}
-Green='\e[0;32m'    # ${Green}
+#Green='\e[0;32m'    # ${Green}
 Yellow='\e[0;33m'   # ${Yellow}
 #Blue='\e[0;34m'    # ${Blue}
 #Purple='\e[0;35m'  # ${Purple}
@@ -35,6 +36,9 @@ Cyan='\e[0;36m'     # ${Cyan}
 Error='\e[41m'      # ${Error}
 Off='\e[0m'         # ${Off}
 
+ding(){
+    printf \\a
+}
 
 usage(){
     cat <<EOF
@@ -96,17 +100,21 @@ if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -a \
                 break
                 ;;
             *)                  # Show usage options
-                echo "Invalid option '$1'"
+                echo -e "Invalid option '$1'\n"
                 usage "$1"
                 ;;
         esac
         shift
     done
+else
+    echo
+    usage
 fi
 
 
 # Check script is running as root
 if [[ $( whoami ) != "root" ]]; then
+    ding
     echo -e "${Error}ERROR${Off} This script must be run as root or sudo!"
     exit 1
 fi
@@ -114,6 +122,7 @@ fi
 # Get DSM major version
 dsm=$(get_key_value /etc.defaults/VERSION majorversion)
 if [[ $dsm -lt "7" ]]; then
+    ding
     echo "This script only works for DSM 7."
     exit 1
 fi
@@ -245,14 +254,14 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
 
                             # Delete downloaded .tar.gz file
                             if ! rm "/tmp/$script-$shorttag.tar.gz"; then
-                                delerr=1
+                                #delerr=1
                                 echo -e "${Error}ERROR ${Off} Failed to delete"\
                                     "downloaded /tmp/$script-$shorttag.tar.gz!"
                             fi
 
                             # Delete extracted tmp files
                             if ! rm -r "/tmp/$script-$shorttag"; then
-                                delerr=1
+                                #delerr=1
                                 echo -e "${Error}ERROR ${Off} Failed to delete"\
                                     "downloaded /tmp/$script-$shorttag!"
                             fi
@@ -285,7 +294,7 @@ rebootmsg(){
     echo -e "\n${Cyan}The Synology needs to restart.${Off}"
     echo -e "Type ${Cyan}yes${Off} to reboot now."
     echo -e "Type anything else to quit (if you will restart it yourself)."
-    read -r answer
+    read -r -t 10 answer
     if [[ ${answer,,} != "yes" ]]; then exit; fi
 
     # Reboot in the background so user can see DSM's "going down" message
@@ -299,6 +308,7 @@ rebootmsg(){
 file="/usr/lib/libhwcontrol.so.1"
 
 if [[ ! -f ${file} ]]; then
+    ding
     echo -e "${Error}ERROR ${Off} File not found!"
     exit 1
 fi
@@ -328,10 +338,12 @@ if [[ $restore == "yes" ]]; then
             rebootmsg
             exit
         else
+            ding
             echo -e "${Error}ERROR ${Off} Backup failed!"
             exit 1
         fi
     else
+        ding
         echo -e "${Error}ERROR ${Off} Backup file not found!"
         exit 1
     fi
@@ -345,6 +357,7 @@ if [[ ! -f ${file}.bak ]]; then
     if cp "$file" "$file".bak ; then
         echo "Backup successful."
     else
+        ding
         echo -e "${Error}ERROR ${Off} Backup failed!"
         exit 1
     fi
@@ -360,6 +373,7 @@ else
         if cp "$file" "$file".bak ; then
             echo "Backup successful."
         else
+            ding
             echo -e "${Error}ERROR ${Off} Backup failed!"
             exit 1
         fi
@@ -478,6 +492,7 @@ else
     if [[ $bytes =~ "752"[0-9] ]]; then
         echo -e "\nEditing file."
     else
+        ding
         echo -e "\n${Red}hex string not found!${Off}"
         exit 1
     fi
@@ -487,6 +502,7 @@ fi
 # Replace bytes in file
 posrep=$(printf "%x\n" $((0x${poshex}+8)))
 if ! printf %s "${posrep}: 9090" | xxd -r - "$file"; then
+    ding
     echo -e "${Error}ERROR ${Off} Failed to edit file!"
     exit 1
 fi
@@ -503,9 +519,59 @@ if [[ $bytes == "9090" ]]; then
     echo -e "\n${Cyan}You can now create your M.2 storage"\
         "pool in Storage Manager.${Off}"
 else
+    ding
     echo -e "${Error}ERROR ${Off} Failed to edit file!"
     exit 1
 fi
+
+
+#--------------------------------------------------------------------
+# Enable m2 volume support - DSM 7.1 and later only
+
+# Backup synoinfo.conf if needed
+#if [[ $dsm72 == "yes" ]]; then
+#if [[ $dsm71 == "yes" ]]; then
+    synoinfo="/etc.defaults/synoinfo.conf"
+    if [[ ! -f ${synoinfo}.bak ]]; then
+        if cp "$synoinfo" "$synoinfo.bak"; then
+            echo -e "\nBacked up $(basename -- "$synoinfo")" >&2
+        else
+            ding
+            echo -e "\n${Error}ERROR 5${Off} Failed to backup $(basename -- "$synoinfo")!"
+            exit 1
+        fi
+    fi
+#fi
+
+# Check if m2 volume support is enabled
+#if [[ $dsm72 == "yes" ]]; then
+#if [[ $dsm71 == "yes" ]]; then
+    smp=support_m2_pool
+    setting="$(get_key_value "$synoinfo" "$smp")"
+    enabled=""
+    if [[ ! $setting ]]; then
+        # Add support_m2_pool="yes"
+        echo 'support_m2_pool="yes"' >> "$synoinfo"
+        enabled="yes"
+    elif [[ $setting == "no" ]]; then
+        # Change support_m2_pool="no" to "yes"
+        #sed -i "s/${smp}=\"no\"/${smp}=\"yes\"/" "$synoinfo"
+        synosetkeyvalue "$synoinfo" "$smp" "yes"
+        enabled="yes"
+    elif [[ $setting == "yes" ]]; then
+        echo -e "\nM.2 volume support already enabled."
+    fi
+
+    # Check if we enabled m2 volume support
+    setting="$(get_key_value "$synoinfo" "$smp")"
+    if [[ $enabled == "yes" ]]; then
+        if [[ $setting == "yes" ]]; then
+            echo -e "\nEnabled M.2 volume support."
+        else
+            echo -e "\n${Error}ERROR${Off} Failed to enable m2 volume support!"
+        fi
+    fi
+#fi
 
 
 #----------------------------------------------------------
