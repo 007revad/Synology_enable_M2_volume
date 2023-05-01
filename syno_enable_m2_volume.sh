@@ -96,8 +96,6 @@ if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -a \
         esac
         shift
     done
-else
-    usage
 fi
 
 
