@@ -25,6 +25,7 @@ It will work for DSM 7.2 beta and some models running DSM 7.1.1. As for a full l
 | DS1821+      | DSM 7.1.1-42962 Update 4 | ? |
 | DS1522+      | DSM 7.1.1-42962 Update 4 | **NO** |
 | DS920+       | DSM 7.2-64216 Beta       | yes |
+| DS920+       | DSM 7.1.1-42962 Update 5 | **NO** |
 | DS920+       | DSM 7.1.1-42962 Update 4 | **NO** |
 | DS918+       | DSM 7.1.1-42962 Update 5 | **NO** |
 
