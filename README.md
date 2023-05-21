@@ -55,12 +55,11 @@ It will work for DSM 7.2 beta and some models running DSM 7.1.1. As for a full l
 
 | Feature                  | Synology_enable_M2_volume                     | Synology_M2_volume                |
 |--------------------------|-----------------------------------------------|-----------------------------------|
+| Non-Synology M.2 drives  | Yes                                           | Yes                               |
 | Ease of use              | Easy                                          | Medium                            |
 | Prompts for answers      | No                                            | Yes, multiple times               |
 | Online Assemble required | No                                            | Yes                               |
 | RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, RAID 1, **RAID 5** |
-| Non-Synology M.2 drives  | Yes                                           | Yes                               |
-| NVMe Health Info         | Yes                                           | No                                |
 | RAID repair              | Yes, via Storage Manager                      | No                                |
 | RAID expansion           | Yes, via Storage Manager                      | No                                |
 | NVMe Health Info         | Yes                                           | No                                |
