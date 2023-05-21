@@ -37,6 +37,7 @@ It will work for DSM 7.2 beta and some models running DSM 7.1.1. As for a full l
     - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
     - Gives you the option of **SHR and JBOD**, as well as RAID 0, RAID 1 and Basic. And **maybe RAID 5 and SHR-2 if you have 4 M.2 drives**.
     - Enables Health Info for non-Synology NVMe drives.
+    - Add drive(s) and change RAID type work from within Storage Manager.
     - RAID repair and expansion work from within Storage Manager.
     - Easy to run as there a no questions to answer.
     - Works with DSM 7.2 beta and 7.1.1 (may work with DSM 7.1 and 7.0).
@@ -60,6 +61,8 @@ It will work for DSM 7.2 beta and some models running DSM 7.1.1. As for a full l
 | Prompts for answers      | No                                            | Yes, multiple times               |
 | Online Assemble required | No                                            | Yes                               |
 | RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, RAID 1, **RAID 5** |
+| Add drive(s) to RAID     | Yes, via Storage Manager                      | No                                |
+| Change RAID type         | Yes, via Storage Manager                      | No                                |
 | RAID repair              | Yes, via Storage Manager                      | No                                |
 | RAID expansion           | Yes, via Storage Manager                      | No                                |
 | NVMe Health Info         | Yes                                           | No                                |
