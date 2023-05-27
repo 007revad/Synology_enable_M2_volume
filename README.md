@@ -12,23 +12,26 @@ This script will:
 - Enable creating M.2 storage pools and volumes all from within Storage Manager.
 - Enable Health Info for non-Synology NVMe drives.
 
-It will work for DSM 7.2 beta and some models running DSM 7.1.1. As for a full list of which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for creating M.2 volumes, and some '21 and newer enterprise models.
+It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list of which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for creating M.2 volumes, and some '21 and newer enterprise models.
 
 **Confirmed working on:**
 
 | Model        | DSM version              | Works |
 | ------------ |--------------------------|-------|
+| DS923+       | DSM 7.2-64561            | yes |
 | DS923+       | DSM 7.1.1-42962 Update 4 | yes |
-| DS3622xs+    | DSM 7.2-64216 Beta       | yes |
+| DS3622xs+    | DSM 7.2-64561            | yes |
 | DS3622xs+    | DSM 7.1.1-42962 Update 4 | yes |
+| RS4021xs+    | DSM 7.2-64561            | yes |
 | RS4021xs+    | DSM 7.1.1-42962 Update 2 | yes |
-| DS1821+      | DSM 7.2-64216 Beta       | yes |
-| DS1821+      | <a href=known_issues.md>DSM 7.2-64213 Beta *</a>  | yes |
+| DS1821+      | DSM 7.2-64561            | yes |
 | DS1821+      | DSM 7.1.1-42962 Update 4 | ? |
+| DS1522+      | DSM 7.2-64561            | yes |
 | DS1522+      | DSM 7.1.1-42962 Update 4 | **NO** |
-| DS920+       | DSM 7.2-64216 Beta       | yes |
+| DS920+       | DSM 7.2-64561            | yes |
 | DS920+       | DSM 7.1.1-42962 Update 5 | **NO** |
 | DS920+       | DSM 7.1.1-42962 Update 4 | **NO** |
+| DS918+       | DSM 7.2-64561            | yes |
 | DS918+       | DSM 7.1.1-42962 Update 5 | **NO** |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
