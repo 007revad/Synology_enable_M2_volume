@@ -70,7 +70,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | RAID repair              | Yes, via Storage Manager                      | No                                |
 | RAID expansion           | Yes, via Storage Manager                      | No                                |
 | NVMe Health Info         | Yes                                           | No                                |
-| DSM version              | DSM 7.2 beta and 7.1.1, and maybe DSM 7.1 and 7.0 | Any DSM version (DSM 6 is WIP)    |
+| DSM version              | DSM 7.2 beta and 7.1.1, and maybe DSM 7.1 and 7.0 | Any DSM version                   |
 | Synology Models          | Maybe only models listed as supported by Synology | Any with M.2 slots or M.2 cards   |
 | What it does             | Temporarily changes 1 file in DSM             | Creates partitons on M.2 drive(s) |
 
