@@ -54,7 +54,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Requires you to do an Online Assemble in Storage Manager before you can create your volume.
     - A little more complicated as there are questions that you need to answer.
     - Gives you the option of Basic, RAID 0, RAID 1 and **RAID 5**.
-    - Works with any DSM version (DSM 6 is still WIP).
+    - Works with any DSM version.
     - Works with any brand M.2 drives.
     - Works with any Synology model that has M.2 slots or can install a PCIe M.2 card.
 
