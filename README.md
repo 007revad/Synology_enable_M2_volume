@@ -30,7 +30,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | DS1522+      | DSM 7.1.1-42962 Update 4 | **NO** |
 | DS1019+      | DSM 7.2-64561            | yes |
 | DS920+       | DSM 7.2-64561            | yes |
-| DS920+       | DSM 7.1.1-42962 Update 5 | **NO** |
+| DS920+       | DSM 7.1.1-42962 Update 5 | yes |
 | DS920+       | DSM 7.1.1-42962 Update 4 | **NO** |
 | DS918+       | DSM 7.2-64561            | yes |
 | DS918+       | DSM 7.1.1-42962 Update 5 | **NO** |
