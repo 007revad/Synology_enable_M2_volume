@@ -69,7 +69,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | Non-Synology M.2 drives  | Yes                                           | Yes                               |
 | Ease of use              | Easy                                          | Medium                            |
 | Prompts for answers      | No                                            | Yes, multiple times               |
-| Online Assemble required | No                                            | Yes                               |
+| Online Assemble required | No                                            | DSM 7 Yes - DSM 6 No              |
 | RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, RAID 1, **RAID 5** |
 | Add drive(s) to RAID     | Yes, via Storage Manager                      | No                                |
 | Change RAID type         | Yes, via Storage Manager                      | No                                |
