@@ -16,8 +16,11 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 **Confirmed working on:**
 
-| Model        | DSM version              | Works |
-| ------------ |--------------------------|-------|
+| Model        | DSM version              | Works | Note |
+| ------------ |--------------------------|-------|------|
+| E10M20-T1    | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
+| M2D20        | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
+| M2D18        | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
 | DS923+       | DSM 7.2-64561            | yes |
 | DS923+       | DSM 7.1.1-42962 Update 4 | yes |
 | DS3622xs+    | DSM 7.2-64561            | yes |
@@ -27,13 +30,13 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | DS1821+      | DSM 7.2-64561            | yes |
 | DS1821+      | DSM 7.1.1-42962 Update 4 | ? |
 | DS1522+      | DSM 7.2-64561            | yes |
-| DS1522+      | DSM 7.1.1-42962 Update 4 | **NO** |
+| DS1522+      | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
 | DS1019+      | DSM 7.2-64561            | yes |
 | DS920+       | DSM 7.2-64561            | yes |
 | DS920+       | DSM 7.1.1-42962 Update 5 | yes |
-| DS920+       | DSM 7.1.1-42962 Update 4 | **NO** |
+| DS920+       | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
 | DS918+       | DSM 7.2-64561            | yes |
-| DS918+       | DSM 7.1.1-42962 Update 5 | **NO** |
+| DS918+       | DSM 7.1.1-42962 Update 5 | **No** | Use newer DSM version |
 | DS720+       | DSM 7.2-64561            | yes |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
@@ -48,6 +51,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Works with DSM 7.2 beta and 7.1.1 (may work with DSM 7.1 and 7.0).
     - Works with any brand M.2 drives.
     - May only work with models Synology listed as supporting M.2 volumes.
+    - Does **NOT** work for M.2 drives in a M2D20, M2D18 or E10M20-T1.
 
 - **<a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a>:**
     - Creates the synology partitions.
@@ -58,6 +62,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Works with any DSM version.
     - Works with any brand M.2 drives.
     - Works with any Synology model that has M.2 slots or can install a PCIe M.2 card.
+    - Works for M.2 drives in a M2D20, M2D18 or E10M20-T1.
 
 | Feature                  | Synology_enable_M2_volume                     | Synology_M2_volume                |
 |--------------------------|-----------------------------------------------|-----------------------------------|
@@ -71,8 +76,8 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | RAID repair              | Yes, via Storage Manager                      | No                                |
 | RAID expansion           | Yes, via Storage Manager                      | No                                |
 | NVMe Health Info         | Yes                                           | No                                |
-| DSM version              | DSM 7.2 beta and 7.1.1, and maybe DSM 7.1 and 7.0 | Any DSM version                   |
-| Synology Models          | Maybe only models listed as supported by Synology | Any with M.2 slots or M.2 cards   |
+| DSM version              | DSM 7.2 beta and 7.1.1, and maybe DSM 7.1 and 7.0 | Any DSM version                 |
+| Synology Models          | Maybe only models listed as supported by Synology | Any with M.2 slots or M.2 cards |
 | What it does             | Temporarily changes 1 file in DSM             | Creates partitons on M.2 drive(s) |
 
 ***Note:*** RAID F1 requires that RAID F1 is enabled on your Synology model. See <a href="https://github.com/007revad/Synology_RAID-F1_SHR_switch">Synology_RAID-F1_SHR_switch</a>
