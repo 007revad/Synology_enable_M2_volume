@@ -12,12 +12,7 @@ Btrfs Peta volumes require 64GB ore more of memory.
 | Required file system   |              | Btrfs        | Btrfs       |
 | Required RAID type     |              | RAID 5 or 6  | RAID 6      |
 | -----------------------|--------------|--------------|-------------|
-| Syninfo setting        | 108TB volume | 200TB volume | Peta volume |
+| Synoinfo setting       | 108TB volume | 200TB volume | Peta volume |
 | -----------------------|--------------|--------------|-------------|
 | supportraidgroup       |              | "yes"        | "yes"       |
-
-WIP
-
-| support_wdda           | "yes"        | "no"         | ???         | no idea what this is?
-
 
