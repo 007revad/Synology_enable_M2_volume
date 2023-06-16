@@ -1,3 +1,6 @@
+v1.0.7
+- Changed to enable m2_pool_support in synostorage.
+
 v1.0.6
 - Changed so you don't also need to run Synology_HDD_db as well.
     - Now adds support_m2_pool="yes" if missing in synoinfo.conf (for DSM 7.1.1)
