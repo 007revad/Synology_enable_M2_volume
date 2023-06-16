@@ -1,4 +1,4 @@
-Note: Officially no Synology NAS supports using M.2 drives in a PCIe card as a volume. Offically they can only be used a cache.
+NOTE: Officially no Synology NAS supports using M.2 drives in a PCIe card as a volume. Offically they can only be used a cache.
 
 E10M20-T1
 https://www.synology.com/en-global/products/E10M20-T1#specs
