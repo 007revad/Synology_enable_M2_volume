@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.0.6"
+scriptver="v1.0.7"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 
@@ -66,7 +66,7 @@ EOF
 
 
 # Save options used
-args="$@"
+args=("$@")
 
 
 # Check for flags with getopt
@@ -90,7 +90,7 @@ if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -a \
                 exit
                 ;;
             -l|--log)           # Log
-                log=yes
+                #log=yes
                 ;;
             -d|--debug)         # Show and log debug info
                 debug=yes
@@ -109,6 +109,12 @@ if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -a \
 else
     echo
     usage
+fi
+
+
+if [[ $debug == "yes" ]]; then
+    # set -x
+    export PS4='`[[ $? == 0 ]] || echo "\e[1;31;40m($?)\e[m\n "`:.$LINENO:'
 fi
 
 
@@ -162,7 +168,7 @@ if [[ $smallfixnumber -gt "0" ]]; then smallfix="-$smallfixnumber"; fi
 echo -e "$model DSM $productversion-$buildnumber$smallfix $buildphase\n"
 
 # Show options used
-echo "Using options: $args"
+echo "Using options: ${args[*]}"
 
 
 #------------------------------------------------------------------------------
@@ -572,6 +578,13 @@ fi
         fi
     fi
 #fi
+
+
+# Enable creating M.2 storage pool and volume in Storage Manager
+# for currently installed NVMe drives
+for nvme in /run/synostorage/disks/nvme*; do
+    echo 1 > /run/synostorage/disks/"$(basename -- "$nvme")"/m2_pool_support
+done
 
 
 #----------------------------------------------------------
