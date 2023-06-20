@@ -39,6 +39,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | DS918+       | DSM 7.2-64561            | yes |
 | DS918+       | DSM 7.1.1-42962 Update 5 | **No** | Use newer DSM version |
 | DS720+       | DSM 7.2-64561            | yes |
+| DS420+       | DSM 7.2-64561            | yes |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
