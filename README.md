@@ -30,6 +30,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | RS4021xs+    | DSM 7.1.1-42962 Update 2 | yes |
 | DS1821+      | DSM 7.2-64561            | yes |
 | DS1821+      | DSM 7.1.1-42962 Update 4 | ? |
+| DS1621xs+    | DSM 7.2-64570 Update 1   | yes |
 | DS1522+      | DSM 7.2-64561            | yes |
 | DS1522+      | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
 | DS1019+      | DSM 7.2-64570 Update 1   | yes |
@@ -143,7 +144,7 @@ See <a href=how_to_schedule.md/>How to schedule a script in Synology Task Manage
 
 ## Screenshots
 
-Here's the result after running the script and rebooting. Note that the stroage pool is being created in Storage Manager and there's no Online Assembly needed. SHR and JBOD are also available.
+Here's the result after running the script and rebooting. Note that the strorage pool is being created in Storage Manager and there's no Online Assembly needed. SHR and JBOD are also available.
 
 <p align="center">After reboot I got some notifications saying the M.2 drives can be managed</p>
 <p align="center"><img src="/images/1b-after-reboot.png"></p>
