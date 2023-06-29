@@ -3,4 +3,6 @@ https://kb.synology.com/en-br/DSM/tutorial/which_synology_nas_models_support_Wri
 
 But we can enable them on other models that are using DSM 7.2 by running the following command:
 
+```YAML
 sudo synosetkeyvalue /etc.defaults/synoinfo.conf support_worm yes
+```
