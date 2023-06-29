@@ -136,9 +136,9 @@ sudo -i /path-to-script/syno_hdd_db.sh --noupdate
 
 After any DSM update you will need to run this script, and the Synology_HDD_db script again. 
 
-### Schedule the script to run at shutdown
+### Schedule the script to run at boot-up
 
-Or you can schedule both Synology_enable_M2_volume and Synology_HDD_db to run when the Synology shuts down, to avoid having to remember to run both scripts after a DSM update.
+Or you can schedule both Synology_enable_M2_volume and Synology_HDD_db to run when the Synology boots up, to avoid having to remember to run both scripts after a DSM update.
 
 See <a href=how_to_schedule.md/>How to schedule a script in Synology Task Scheduler</a>
 
