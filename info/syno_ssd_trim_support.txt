@@ -1,5 +1,0 @@
-Enable SSD TRIM
-https://kb.synology.com/en-us/DSM/help/DSM/StorageManager/volume_ssd_trim?version=7
-
-2.5" SATA SSD compatability - expand each one to check if TRIM is supported
-https://www.synology.com/en-us/compatibility?search_by=category&category=hdds_no_ssd_trim&filter_type=2.5%22%20SATA%20SSD&p=1&change_log_p=1
