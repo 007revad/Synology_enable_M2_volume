@@ -1,3 +1,5 @@
+Synology NAS models that officially support M.2 volumes.
+
 https://kb.synology.com/en-ph/DSM/tutorial/Which_models_support_M_2_SSD_storage_pool
 
 Which Synology NAS models support using M.2 SSDs to create storage pools?
