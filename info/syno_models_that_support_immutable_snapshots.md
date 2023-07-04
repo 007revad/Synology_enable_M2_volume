@@ -6,3 +6,4 @@ But we can enable them on other models that are using DSM 7.2 by running the fol
 ```YAML
 sudo synosetkeyvalue /etc.defaults/synoinfo.conf support_worm yes
 ```
+Will that work on all models using DSM 7.2... I don't know.
