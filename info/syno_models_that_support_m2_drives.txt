@@ -1,4 +1,4 @@
-Synology NAS models with internal M.2 slots or that support M.2 PCie cards
+Synology NAS models with internal M.2 slots or that officially support M.2 PCie cards
 
 DS3622xs+
 DS3617xsII
