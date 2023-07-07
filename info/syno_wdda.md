@@ -1,3 +1,5 @@
+Western Digital Device Analytics (WDDA)
+
 Notes: WDDA is only available on DSM 7.0 and above, and only on specific Synology NAS models released before the 22-series.
 
 https://kb.synology.com/en-us/DSM/tutorial/Which_Synology_NAS_supports_WDDA
