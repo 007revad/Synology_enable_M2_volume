@@ -2,11 +2,13 @@ https://kb.synology.com/en-ro/DSM/tutorial/Which_Synology_NAS_models_support_RAI
 
 *Synology stopped updating this list in Oct 2022*
 
+Updated by 007revad July 2023
 
 **Which Synology server models support RAID F1?**
 - UC3200
 - FS6400, FS3600, FS3410, FS3400, FS3017, FS2500, FS2017, FS1018
-- SA3600, SA3400, SA3200D
+- SA6400, SA3610, SA3600, SA3410, SA3400, SA36200D
+- DS1823xs+
 - DS3622xs+
 - RS4021xs+, RS3621xs+, RS3621RPxs, DS1621xs+
 - RS1619xs+
