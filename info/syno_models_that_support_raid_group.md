@@ -20,3 +20,4 @@ Updated by 007revad July 2023 - Added HD6500, SA6400, SA3610, SA3410 and DS1823x
 - RS3614xs+, RS3614RPxs, RS3614xs
 - RS10613xs+, RS3413xs+
   
+https://kb.synology.com/en-us/DSM/tutorial/What_is_RAID_Group
