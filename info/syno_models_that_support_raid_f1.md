@@ -18,3 +18,5 @@ Updated by 007revad July 2023 - Added SA6400, SA3610, SA3410 and DS1823xs+
 - RC18015xs+, DS3615xs
 - RS3614xs+, RS3614RPxs, RS3614xs
 - RS10613xs+, RS3413xs+
+
+https://global.download.synology.com/download/Document/WhitePaper/Synology_RAID_F1_WP.pdf
