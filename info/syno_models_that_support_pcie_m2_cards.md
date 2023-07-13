@@ -25,14 +25,14 @@ DSM version requirement for RS18017xs+, RS4017xs+, RS3618xs, RS3617xs+, RS3617RP
 **M2D20** </br>
 https://www.synology.com/en-global/products/M2D20#specs
 
-- SA series:SA3600, SA3400, SA6400
-- 23 series:RS2423RP+, RS2423+
-- 22 series:RS822RP+, RS822+, DS3622xs+, DS2422+
-- 21 series:RS4021xs+, RS3621xs+, RS3621RPxs, RS2821RP+, RS2421RP+, RS2421+, RS1221RP+, RS1221+
-- 20 series:RS820RP+, RS820+
-- 19 series:DS2419+, DS2419+II, DS1819+
-- 18 series:RS3618xs, RS2818RP+, RS2418RP+, RS2418+, DS3018xs, DS1618+
-- 17 series:RS18017xs+, RS4017xs+, RS3617xs+, RS3617RPxs, DS3617xs, DS3617xsII
+- SA series: SA3600, SA3400, SA6400
+- 23 series: RS2423RP+, RS2423+
+- 22 series: RS822RP+, RS822+, DS3622xs+, DS2422+
+- 21 series: RS4021xs+, RS3621xs+, RS3621RPxs, RS2821RP+, RS2421RP+, RS2421+, RS1221RP+, RS1221+
+- 20 series: RS820RP+, RS820+
+- 19 series: DS2419+, DS2419+II, DS1819+
+- 18 series: RS3618xs, RS2818RP+, RS2418RP+, RS2418+, DS3018xs, DS1618+
+- 17 series: RS18017xs+, RS4017xs+, RS3617xs+, RS3617RPxs, DS3617xs, DS3617xsII
 
 </br>
 
