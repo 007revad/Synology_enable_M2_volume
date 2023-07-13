@@ -1,10 +1,11 @@
-https://kb.synology.com/en-ro/DSM/tutorial/Which_Synology_NAS_models_support_RAID_F1
+https://kb.synology.com/en-us/DSM/tutorial/Which_models_support_RAID_Group
 
 *Synology stopped updating this list in Oct 2022*
 
-Updated by 007revad July 2023 - Added SA6400, SA3610, SA3410 and DS1823xs+
+Updated by 007revad July 2023 - Added HD6500, SA6400, SA3610, SA3410 and DS1823xs+
 
-**Which Synology server models support RAID F1?**
+**Which Synology server models support RAID Group?**
+- HD6500
 - UC3200
 - FS6400, FS3600, FS3410, FS3400, FS3017, FS2500, FS2017, FS1018
 - SA6400, SA3610, SA3600, SA3410, SA3400, SA36200D
@@ -18,5 +19,5 @@ Updated by 007revad July 2023 - Added SA6400, SA3610, SA3410 and DS1823xs+
 - RC18015xs+, DS3615xs
 - RS3614xs+, RS3614RPxs, RS3614xs
 - RS10613xs+, RS3413xs+
-
-https://global.download.synology.com/download/Document/WhitePaper/Synology_RAID_F1_WP.pdf
+  
+https://kb.synology.com/en-us/DSM/tutorial/What_is_RAID_Group
