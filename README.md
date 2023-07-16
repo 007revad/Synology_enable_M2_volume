@@ -84,7 +84,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | M.2 drive location       | Internal M.2 slots only                       | Internal M.2 slots, M.2 PCie cards |
 | What it does             | Temporarily changes 1 file in DSM             | Creates partitons on M.2 drive(s) |
 
-***Note:*** RAID F1 requires that RAID F1 is enabled on your Synology model. See <a href="https://github.com/007revad/Synology_RAID-F1_SHR_switch">Synology_RAID-F1_SHR_switch</a>
+***Note:*** RAID F1 requires a Synology model that supports RAID F1.
 
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 
