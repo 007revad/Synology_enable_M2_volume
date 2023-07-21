@@ -11,7 +11,21 @@ https://kb.synology.com/en-global/DSM/tutorial/What_is_Btrfs_Peta_Volume
 | Required file system   |              | Btrfs        | Btrfs       |
 | Required RAID type     |              | RAID 5 or 6  | RAID 6      |
 
-| Synoinfo setting       | 108TB volume | 200TB volume | Peta volume |
-| -----------------------|--------------|--------------|-------------|
-| supportraidgroup       |              | "yes"        | "yes"       |
+Models that support 200TB volumes
+  - RS2423+, RS2423RP+
+  - All xs RS and DS models
+  - All FS models
+  - All HD models
+  - All SA models
 
+</br>
+
+There are 2 models that support 200TB volumes and SHR, that have no supportraidgroup
+  1. RS2423+
+  2. RS2423RP+
+
+| Synoinfo setting       | 108TB volume | 200TB volume | Peta volume | Model     |
+| -----------------------|--------------|--------------|-------------|-----------|
+| supportraidgroup       |              | "yes         | "yes"       |           |
+| supportraidgroup       |              |              |             | RS2423+   |
+| supportraidgroup       |              |              |             | RS2423RP+ |
