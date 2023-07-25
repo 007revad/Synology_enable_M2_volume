@@ -65,7 +65,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Gives you the option of Basic, RAID 0, RAID 1 and **RAID 5**.
     - Works with any DSM version.
     - Works with any brand M.2 drives.
-    - Works with any Synology model that has M.2 slots or can install a PCIe M.2 card.
+    - Works with any Synology model that has M.2 slots or can install a Synology PCIe M.2 card.
     - Works for M.2 drives in a M2D20, M2D18, M2D17 or E10M20-T1.
 
 | Feature                  | Synology_enable_M2_volume                     | Synology_M2_volume                |
@@ -81,7 +81,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | RAID expansion           | Yes, via Storage Manager                      | No                                |
 | NVMe Health Info         | Yes                                           | No                                |
 | DSM version              | DSM 7.2 (and 7.1.1 for some NAS models)       | Any DSM version                   |
-| M.2 drive location       | Internal M.2 slots only                       | Internal M.2 slots, M.2 PCie cards |
+| M.2 drive location       | Internal M.2 slots only                       | Internal M.2 slots, **Synology M.2 PCie cards** |
 | What it does             | Temporarily changes 1 file in DSM             | Creates partitons on M.2 drive(s) |
 
 ***Note:*** RAID F1 requires a Synology model that supports RAID F1.
