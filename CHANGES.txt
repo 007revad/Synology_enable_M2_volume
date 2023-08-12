@@ -1,3 +1,7 @@
+v1.0.8
+- Now script automatically reloads itself after updating.
+- Bug fix to prevent error if NVMe drive not found in /run/synostorage/disks/
+
 v1.0.7
 - Changed to enable m2_pool_support in synostorage.
 
