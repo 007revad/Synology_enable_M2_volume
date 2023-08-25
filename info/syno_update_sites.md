@@ -12,3 +12,7 @@ For full list including DSM 6 see <a href=https://kb.synology.com/en-my/DSM/tuto
 - update7.synology.com
 - autoupdate7.synology.com
 - autoupdate7.synology.cn (Only for China)
+
+
+</br>List of sub domains owned by Synology 
+https://subdomainfinder.c99.nl/scans/2023-08-18/synology.com
