@@ -16,38 +16,44 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 **Confirmed working on:**
 
-| Model        | DSM version              | Works | Note |
-| ------------ |--------------------------|-------|------|
-| E10M20-T1    | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
-| M2D20        | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
-| M2D18        | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
-| DS923+       | DSM 7.2-64561            | yes |
-| DS923+       | DSM 7.1.1-42962 Update 4 | yes |
-| DS723+       | DSM 7.2-64570 Update 3   | yes |
-| DS423+       | DSM 7.1.1-42962 Update 5 | yes |
-| DS3622xs+    | DSM 7.2-64561            | yes |
-| DS3622xs+    | DSM 7.1.1-42962 Update 4 | yes |
-| RS4021xs+    | DSM 7.2-64561            | yes |
-| RS4021xs+    | DSM 7.1.1-42962 Update 2 | yes |
-| DS1821+      | DSM 7.2-64570 Update 3   | yes |
-| DS1821+      | DSM 7.2-64570 Update 2   | yes |
-| DS1821+      | DSM 7.2-64570 Update 1   | yes |
-| DS1821+      | DSM 7.2-64570            | yes |
-| DS1821+      | DSM 7.2-64561            | yes |
-| DS1821+      | DSM 7.1.1-42962 Update 4 | ? |
-| DS1621xs+    | DSM 7.2-64570 Update 1   | yes |
-| DS1522+      | DSM 7.2-64561            | yes |
-| DS1522+      | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
-| DS1019+      | DSM 7.2-64570 Update 1   | yes |
-| DS1019+      | DSM 7.2-64561            | yes |
-| DS920+       | DSM 7.2-64570 Update 1   | yes |
-| DS920+       | DSM 7.2-64561            | yes |
-| DS920+       | DSM 7.1.1-42962 Update 5 | yes |
-| DS920+       | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
-| DS720+       | DSM 7.2-64561            | yes |
-| DS420+       | DSM 7.2-64561            | yes |
-| DS918+       | DSM 7.2-64561            | yes |
-| DS918+       | DSM 7.1.1-42962 Update 5 | **No** | Use newer DSM version |
+| Model        | CPU Arch | DSM version              | Works | Note |
+| ------------ |----------|--------------------------|-------|------|
+| E10M20-T1    | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
+| M2D20        | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
+| M2D18        | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
+| DS923+       | R1000 | DSM 7.2-64570 Update 3   | yes |
+| DS923+       | R1000 | DSM 7.2-64561            | yes |
+| DS923+       | R1000 | DSM 7.1.1-42962 Update 4 | yes |
+| DS723+       | R1000 | DSM 7.2-64570 Update 3   | yes |
+| DS423+       | Geminilake | DSM 7.1.1-42962 Update 5 | yes |
+| DS3622xs+    | Broadwellnk | DSM 7.2-64561            | yes |
+| DS3622xs+    | Broadwellnk | DSM 7.1.1-42962 Update 4 | yes |
+| RS4021xs+    | Broadwellnk | DSM 7.2-64561            | yes |
+| RS4021xs+    | Broadwellnk | DSM 7.1.1-42962 Update 2 | yes |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 3   | yes |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 2   | yes |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 1   | yes |
+| DS1821+      | V1000 | DSM 7.2-64570            | yes |
+| DS1821+      | V1000 | DSM 7.2-64561            | yes |
+| DS1821+      | V1000 | DSM 7.1.1-42962 Update 4 | ? |
+| DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 3   | yes |
+| DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 1   | yes |
+| DS1522+      | R1000 | DSM 7.2-64561            | yes |
+| DS1522+      | R1000 | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
+| DS1019+      | Apollolake | DSM 7.2-64570 Update 3   | yes |
+| DS1019+      | Apollolake | DSM 7.2-64570 Update 1   | yes |
+| DS1019+      | Apollolake | DSM 7.2-64561            | yes |
+| DS920+       | Geminilake | DSM 7.2-64570 Update 3   | yes |
+| DS920+       | Geminilake | DSM 7.2-64570 Update 1   | yes |
+| DS920+       | Geminilake | DSM 7.2-64561            | yes |
+| DS920+       | Geminilake | DSM 7.1.1-42962 Update 5 | yes |
+| DS920+       | Geminilake | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
+| DS720+       | Geminilake | DSM 7.2-64570 Update 3   | yes |
+| DS720+       | Geminilake | DSM 7.2-64561            | yes |
+| DS420+       | Geminilake | DSM 7.2-64561            | yes |
+| DS918+       | Apollolake | DSM 7.2-64570 Update 3   | yes |
+| DS918+       | Apollolake | DSM 7.2-64561            | yes |
+| DS918+       | Apollolake | DSM 7.1.1-42962 Update 5 | **No** | Use newer DSM version |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
