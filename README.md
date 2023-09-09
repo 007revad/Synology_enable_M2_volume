@@ -87,7 +87,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | Ease of use              | Easy                                          | Medium                            |
 | Prompts for answers      | No                                            | Yes, multiple times               |
 | Online Assemble required | No                                            | DSM 7 Yes - DSM 6 No              |
-| RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, 1, **5, 6 and 10** |
+| RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, 1, **5, 6 and 10** (see Note 2) |
 | Add drive(s) to RAID     | Yes, via Storage Manager                      | No                                |
 | Change RAID type         | Yes, via Storage Manager                      | No                                |
 | RAID repair              | Yes, via Storage Manager                      | No                                |
@@ -98,6 +98,8 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | What it does             | Edits 1 file in DSM                           | Creates partitons on M.2 drive(s) |
 
 ***Note:*** RAID F1 requires a Synology model that supports RAID F1.
+
+***Note 2:*** RAID 5 requires 3 or more NVMe drives. RAID 6 and 10 require 4 or more NVMe drives.
 
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 
