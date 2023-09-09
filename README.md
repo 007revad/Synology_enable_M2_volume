@@ -60,7 +60,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 - **Synology_enable_M2_volume:**
     - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
-    - Gives you the option of **SHR and JBOD**, as well as RAID 0, RAID 1 and Basic. And **maybe RAID 5 and SHR-2 if you have 4 M.2 drives**.
+    - Gives you the option of **SHR and JBOD**, as well as RAID 0, RAID 1 and Basic.
     - Enables Health Info for non-Synology NVMe drives.
     - Add drive(s) and change RAID type work from within Storage Manager.
     - RAID repair and expansion work from within Storage Manager.
@@ -75,7 +75,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Creates the storage pool.
     - Requires you to do an Online Assemble in Storage Manager before you can create your volume.
     - A little more complicated as there are questions that you need to answer.
-    - Gives you the option of Basic, RAID 0, RAID 1 and **RAID 5**.
+    - Gives you the option of Basic, RAID 0, RAID 1, **RAID 5**, **RAID 6** and **RAID 10**.    
     - Works with any DSM version.
     - Works with any brand M.2 drives.
     - Works with any Synology model that has M.2 slots or can install a Synology PCIe M.2 card.
@@ -87,7 +87,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | Ease of use              | Easy                                          | Medium                            |
 | Prompts for answers      | No                                            | Yes, multiple times               |
 | Online Assemble required | No                                            | DSM 7 Yes - DSM 6 No              |
-| RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, RAID 1, **RAID 5** |
+| RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, 1, **5, 6 and 10** |
 | Add drive(s) to RAID     | Yes, via Storage Manager                      | No                                |
 | Change RAID type         | Yes, via Storage Manager                      | No                                |
 | RAID repair              | Yes, via Storage Manager                      | No                                |
@@ -95,7 +95,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | NVMe Health Info         | Yes                                           | No                                |
 | DSM version              | DSM 7.2 (and 7.1.1 for some NAS models)       | Any DSM version                   |
 | M.2 drive location       | Internal M.2 slots only                       | Internal M.2 slots, **Synology M.2 PCie cards** |
-| What it does             | Temporarily changes 1 file in DSM             | Creates partitons on M.2 drive(s) |
+| What it does             | Edits 1 file in DSM                           | Creates partitons on M.2 drive(s) |
 
 ***Note:*** RAID F1 requires a Synology model that supports RAID F1.
 
