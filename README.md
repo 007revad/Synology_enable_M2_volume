@@ -69,6 +69,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Works with any brand M.2 drives.
     - May only work with models Synology listed as supporting M.2 volumes.
     - Does **NOT** work for M.2 drives in a M2D20, M2D18, M2D17 or E10M20-T1.
+    - Does **NOT** allow creating a storage pool/volume spanning internal NVMe drives and NVMe drives in a Synology M.2 PCIe card.
 
 - **<a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a>:**
     - Creates the synology partitions.
@@ -80,6 +81,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Works with any brand M.2 drives.
     - Works with any Synology model that has M.2 slots or can install a Synology PCIe M.2 card.
     - Works for M.2 drives in a M2D20, M2D18, M2D17 or E10M20-T1.
+    - Works for creating a storage pool/volume spanning internal NVMe drives and NVMe drives in a Synology M.2 PCIe card.
 
 | Feature                  | Synology_enable_M2_volume                     | Synology_M2_volume                |
 |--------------------------|-----------------------------------------------|-----------------------------------|
@@ -94,7 +96,8 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | RAID expansion           | Yes, via Storage Manager                      | No                                |
 | NVMe Health Info         | Yes                                           | No                                |
 | DSM version              | DSM 7.2 (and 7.1.1 for some NAS models)       | Any DSM version                   |
-| M.2 drive location       | Internal M.2 slots only                       | Internal M.2 slots, **Synology M.2 PCie cards** |
+| M.2 drive location       | Internal M.2 slots only                       | Internal M.2 and **Synology M.2 PCie cards** |
+| Span internal/PCIe NVMes | No                                            | Yes                               |
 | What it does             | Edits 1 file in DSM                           | Creates partitons on M.2 drive(s) |
 
 ***Note:*** RAID F1 requires a Synology model that supports RAID F1.
