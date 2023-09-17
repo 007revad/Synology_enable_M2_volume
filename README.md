@@ -58,7 +58,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | DS918+       | Apollolake | DSM 7.2-64570 Update 3   | yes |
 | DS918+       | Apollolake | DSM 7.2-64561            | yes |
 | DS918+       | Apollolake | DSM 7.1.1-42962 Update 5 | **No** | Use newer DSM version |
-| DS3617xs     | Broadwell | DSM 7.x              | **No** |
+| DS3617xs     | Broadwell | DSM 7.x              | **No** | Not working with any DSM version |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
