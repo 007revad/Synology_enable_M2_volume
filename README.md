@@ -3,6 +3,7 @@
 <a href="https://github.com/007revad/Synology_enable_M2_volume/releases"><img src="https://img.shields.io/github/release/007revad/Synology_enable_M2_volume.svg"></a>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F007revad%2FSynology_enable_M2_volumeh&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/007revad)
+[![committers.top badge](https://user-badge.committers.top/australia/007revad.svg)](https://user-badge.committers.top/australia/007revad)
 
 ### Description
 
@@ -16,44 +17,50 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 **Confirmed working on:**
 
-| Model        | DSM version              | Works | Note |
-| ------------ |--------------------------|-------|------|
-| E10M20-T1    | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
-| M2D20        | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
-| M2D18        | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
-| DS923+       | DSM 7.2-64561            | yes |
-| DS923+       | DSM 7.1.1-42962 Update 4 | yes |
-| DS723+       | DSM 7.2-64570 Update 3   | yes |
-| DS423+       | DSM 7.1.1-42962 Update 5 | yes |
-| DS3622xs+    | DSM 7.2-64561            | yes |
-| DS3622xs+    | DSM 7.1.1-42962 Update 4 | yes |
-| RS4021xs+    | DSM 7.2-64561            | yes |
-| RS4021xs+    | DSM 7.1.1-42962 Update 2 | yes |
-| DS1821+      | DSM 7.2-64570 Update 3   | yes |
-| DS1821+      | DSM 7.2-64570 Update 2   | yes |
-| DS1821+      | DSM 7.2-64570 Update 1   | yes |
-| DS1821+      | DSM 7.2-64570            | yes |
-| DS1821+      | DSM 7.2-64561            | yes |
-| DS1821+      | DSM 7.1.1-42962 Update 4 | ? |
-| DS1621xs+    | DSM 7.2-64570 Update 1   | yes |
-| DS1522+      | DSM 7.2-64561            | yes |
-| DS1522+      | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
-| DS1019+      | DSM 7.2-64570 Update 1   | yes |
-| DS1019+      | DSM 7.2-64561            | yes |
-| DS920+       | DSM 7.2-64570 Update 1   | yes |
-| DS920+       | DSM 7.2-64561            | yes |
-| DS920+       | DSM 7.1.1-42962 Update 5 | yes |
-| DS920+       | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
-| DS720+       | DSM 7.2-64561            | yes |
-| DS420+       | DSM 7.2-64561            | yes |
-| DS918+       | DSM 7.2-64561            | yes |
-| DS918+       | DSM 7.1.1-42962 Update 5 | **No** | Use newer DSM version |
+| Model        | CPU Arch | DSM version              | Works | Note |
+| ------------ |----------|--------------------------|-------|------|
+| E10M20-T1    | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
+| M2D20        | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
+| M2D18        | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
+| DS923+       | R1000 | DSM 7.2-64570 Update 3   | yes |
+| DS923+       | R1000 | DSM 7.2-64561            | yes |
+| DS923+       | R1000 | DSM 7.1.1-42962 Update 4 | yes |
+| DS723+       | R1000 | DSM 7.2-64570 Update 3   | yes |
+| DS423+       | Geminilake | DSM 7.1.1-42962 Update 5 | yes |
+| DS3622xs+    | Broadwellnk | DSM 7.2-64561            | yes |
+| DS3622xs+    | Broadwellnk | DSM 7.1.1-42962 Update 4 | yes |
+| RS4021xs+    | Broadwellnk | DSM 7.2-64561            | yes |
+| RS4021xs+    | Broadwellnk | DSM 7.1.1-42962 Update 2 | yes |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 3   | yes |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 2   | yes |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 1   | yes |
+| DS1821+      | V1000 | DSM 7.2-64570            | yes |
+| DS1821+      | V1000 | DSM 7.2-64561            | yes |
+| DS1821+      | V1000 | DSM 7.1.1-42962 Update 4 | ? |
+| DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 3   | yes |
+| DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 1   | yes |
+| DS1522+      | R1000 | DSM 7.2-64561            | yes |
+| DS1522+      | R1000 | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
+| DS1019+      | Apollolake | DSM 7.2-64570 Update 3   | yes |
+| DS1019+      | Apollolake | DSM 7.2-64570 Update 1   | yes |
+| DS1019+      | Apollolake | DSM 7.2-64561            | yes |
+| DS920+       | Geminilake | DSM 7.2-64570 Update 3   | yes |
+| DS920+       | Geminilake | DSM 7.2-64570 Update 1   | yes |
+| DS920+       | Geminilake | DSM 7.2-64561            | yes |
+| DS920+       | Geminilake | DSM 7.1.1-42962 Update 5 | yes |
+| DS920+       | Geminilake | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
+| DS720+       | Geminilake | DSM 7.2-64570 Update 3   | yes |
+| DS720+       | Geminilake | DSM 7.2-64561            | yes |
+| DS420+       | Geminilake | DSM 7.2-64561            | yes |
+| DS918+       | Apollolake | DSM 7.2-64570 Update 3   | yes |
+| DS918+       | Apollolake | DSM 7.2-64561            | yes |
+| DS918+       | Apollolake | DSM 7.1.1-42962 Update 5 | **No** | Use newer DSM version |
 
 ### How is this different to the <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> script?
 
 - **Synology_enable_M2_volume:**
     - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
-    - Gives you the option of **SHR and JBOD**, as well as RAID 0, RAID 1 and Basic. And **maybe RAID 5 and SHR-2 if you have 4 M.2 drives**.
+    - Gives you the option of **SHR and JBOD**, as well as RAID 0, RAID 1 and Basic.
     - Enables Health Info for non-Synology NVMe drives.
     - Add drive(s) and change RAID type work from within Storage Manager.
     - RAID repair and expansion work from within Storage Manager.
@@ -62,17 +69,19 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Works with any brand M.2 drives.
     - May only work with models Synology listed as supporting M.2 volumes.
     - Does **NOT** work for M.2 drives in a M2D20, M2D18, M2D17 or E10M20-T1.
+    - Does **NOT** allow creating a storage pool/volume spanning internal NVMe drives and NVMe drives in a Synology M.2 PCIe card.
 
 - **<a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a>:**
     - Creates the synology partitions.
     - Creates the storage pool.
     - Requires you to do an Online Assemble in Storage Manager before you can create your volume.
     - A little more complicated as there are questions that you need to answer.
-    - Gives you the option of Basic, RAID 0, RAID 1 and **RAID 5**.
+    - Gives you the option of Basic, RAID 0, RAID 1, **RAID 5**, **RAID 6** and **RAID 10**.    
     - Works with any DSM version.
     - Works with any brand M.2 drives.
     - Works with any Synology model that has M.2 slots or can install a Synology PCIe M.2 card.
     - Works for M.2 drives in a M2D20, M2D18, M2D17 or E10M20-T1.
+    - Works for creating a storage pool/volume spanning internal NVMe drives and NVMe drives in a Synology M.2 PCIe card.
 
 | Feature                  | Synology_enable_M2_volume                     | Synology_M2_volume                |
 |--------------------------|-----------------------------------------------|-----------------------------------|
@@ -80,17 +89,20 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | Ease of use              | Easy                                          | Medium                            |
 | Prompts for answers      | No                                            | Yes, multiple times               |
 | Online Assemble required | No                                            | DSM 7 Yes - DSM 6 No              |
-| RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, RAID 1, **RAID 5** |
+| RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, 1, **5, 6 and 10** (see Note 2) |
 | Add drive(s) to RAID     | Yes, via Storage Manager                      | No                                |
 | Change RAID type         | Yes, via Storage Manager                      | No                                |
 | RAID repair              | Yes, via Storage Manager                      | No                                |
 | RAID expansion           | Yes, via Storage Manager                      | No                                |
 | NVMe Health Info         | Yes                                           | No                                |
 | DSM version              | DSM 7.2 (and 7.1.1 for some NAS models)       | Any DSM version                   |
-| M.2 drive location       | Internal M.2 slots only                       | Internal M.2 slots, **Synology M.2 PCie cards** |
-| What it does             | Temporarily changes 1 file in DSM             | Creates partitons on M.2 drive(s) |
+| M.2 drive location       | Internal M.2 slots only                       | Internal M.2 and **Synology M.2 PCie cards** |
+| Span internal/PCIe NVMes | No                                            | Yes                               |
+| What it does             | Edits 1 file in DSM                           | Creates partitons on M.2 drive(s) |
 
 ***Note:*** RAID F1 requires a Synology model that supports RAID F1.
+
+***Note 2:*** RAID 5 requires 3 or more NVMe drives. RAID 6 and 10 require 4 or more NVMe drives.
 
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 

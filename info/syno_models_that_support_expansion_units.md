@@ -1,2 +1,0 @@
-https://kb.synology.com/en-us/DSM/tutorial/Which_Synology_DiskStation_RackStation_can_I_use_with_Synology_Expansion_Units
-
