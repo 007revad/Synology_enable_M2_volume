@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.0.9"
+scriptver="v1.0.10"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 
@@ -35,11 +35,14 @@ $script $scriptver - by 007revad
 Usage: $(basename "$0") [options]
 
 Options:
-  -c, --check      Check value in file and backup file
-  -r, --restore    Restore backup to undo changes
-  -e, --email      Disable colored text in output scheduler emails.
-  -h, --help       Show this help message
-  -v, --version    Show the script version
+  -c, --check           Check value in file and backup file
+  -r, --restore         Restore backup to undo changes
+  -e, --email           Disable colored text in output scheduler emails.
+      --autoupdate=AGE  Auto update script (useful when script is scheduled)
+                          AGE is how many days old a release must be before
+                          auto-updating. AGE must be a number: 0 or greater
+  -h, --help            Show this help message
+  -v, --version         Show the script version
   
 EOF
     exit 0
