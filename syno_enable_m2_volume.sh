@@ -14,6 +14,7 @@
 scriptver="v1.0.10"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
+scriptname=syno_enable_m2_volume
 
 # Check BASH variable is bash
 if [ ! "$(basename "$BASH")" = bash ]; then
@@ -37,7 +38,8 @@ Usage: $(basename "$0") [options]
 Options:
   -c, --check           Check value in file and backup file
   -r, --restore         Restore backup to undo changes
-  -e, --email           Disable colored text in output scheduler emails.
+  -n, --noreboot        Don't reboot after script has run
+  -e, --email           Disable colored text in output scheduler emails
       --autoupdate=AGE  Auto update script (useful when script is scheduled)
                           AGE is how many days old a release must be before
                           auto-updating. AGE must be a number: 0 or greater
@@ -65,7 +67,7 @@ args=("$@")
 
 # Check for flags with getopt
 if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -l \
-    check,restore,email,autoupdate:,help,version,log,debug -- "$@")"; then
+    check,restore,noreboot,email,autoupdate:,help,version,log,debug -- "$@")"; then
     eval set -- "$options"
     while true; do
         case "${1,,}" in
@@ -77,6 +79,9 @@ if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -l \
                 ;;
             -e|--email)         # Disable colour text in task scheduler emails
                 color=no
+                ;;
+            -n|--noreboot)      # Don't reboot after script has run
+                noreboot=yes
                 ;;
             --autoupdate)       # Auto update script
                 autoupdate=yes
@@ -155,21 +160,6 @@ if [[ $dsm -lt "7" ]]; then
 fi
 
 
-# Check bc command exists
-if ! which bc >/dev/null ; then
-    echo -e "${Error}ERROR${Off} bc command not found!\n"
-    #echo -e "This script needs the bc command, which is not included in DSM."
-    echo -e "Please install ${Cyan}SynoCli misc. Tools${Off} from SynoCommunity."
-    echo -e "  1. Package Center > Settings > Package Sources > Add"
-    echo -e "  2. Name: ${Cyan}SynoCommunity${Off}"
-    echo -e "  3. Location: ${Cyan}https://packages.synocommunity.com/${Off}"
-    echo -e "  4. Click OK and OK again."
-    echo -e "  5. Click Community on the left."
-    echo -e "  6. Install ${Cyan}SynoCli misc. Tools${Off}\n"
-    exit
-fi
-
-
 # Show script version
 #echo -e "$script $scriptver\ngithub.com/$repo\n"
 echo "$script $scriptver"
@@ -190,6 +180,30 @@ echo -e "$model DSM $productversion-$buildnumber$smallfix $buildphase\n"
 
 # Show options used
 echo "Using options: ${args[*]}"
+
+
+#------------------------------------------------------------------------------
+# Install bc command if missing
+
+if ! which bc >/dev/null ; then
+    # Download bc
+    echo -e "\nDownloading bc"
+    curl -kL "https://raw.githubusercontent.com/${repo}/main/bin/bc" -o /tmp/bc
+
+    # Set bc executable
+    chmod a+x /tmp/bc
+
+    # Copy bc to /usr/bin
+    cp -p /tmp/bc /usr/bin/bc
+
+    # Check bc is executable
+    if [[ ! -x /usr/bin/bc ]]; then
+        ding
+        echo "/usr/bin/bc not found or not executable!"
+        exit 1
+    fi
+    echo
+fi
 
 
 #------------------------------------------------------------------------------
@@ -329,7 +343,7 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
                             fi
 
                             # Copy new script sh file to script location
-                            if ! cp -p "/tmp/$script-$shorttag/syno_enable_m2_volume.sh" "${scriptpath}/${scriptfile}";
+                            if ! cp -p "/tmp/$script-$shorttag/$scriptname.sh" "${scriptpath}/${scriptfile}";
                             then
                                 copyerr=1
                                 echo -e "${Error}ERROR${Off} Failed to copy"\
@@ -582,7 +596,6 @@ if [[ $bytes == "9090" ]]; then
     echo -e "\n${Cyan}File already edited.${Off}"
     exit
 else
-
     # Check if the file is okay for editing
     hexstring="80 3E 00 B8 01 00 00 00 75 2. 48 8B"
     findbytes "$file"
@@ -615,6 +628,7 @@ if [[ $bytes == "9090" ]]; then
     echo -e "File successfully edited."
     echo -e "\n${Cyan}You can now create your M.2 storage"\
         "pool in Storage Manager.${Off}"
+    edited=yes
 else
     ding
     echo -e "${Error}ERROR${Off} Failed to edit file!"
@@ -639,6 +653,7 @@ fi
         fi
     fi
 #fi
+
 
 # Check if m2 volume support is enabled
 #if [[ $dsm72 == "yes" ]]; then
@@ -683,7 +698,10 @@ done
 #----------------------------------------------------------
 # Reboot
 
-rebootmsg
+# Only show reboot message if $noreboot not set and we patched file
+if [[ $noreboot != "yes" ]] && [[ $edited == "yes" ]]; then
+    rebootmsg
+fi
 
 exit
 
