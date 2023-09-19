@@ -1,4 +1,7 @@
 v1.0.10
+- Added -n, --noreboot option to never reboot after script has run.
+- Changed to only ask to reboot if script patched file and -n, --noreboot option not used.
+- Changed to automatically download and install bc, if needed.
 - Bug fix added --email and --autoupdate to --help
 
 v1.0.9
