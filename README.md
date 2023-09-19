@@ -140,10 +140,14 @@ See <a href=images/how_to_download_generic.png/>How to download the script</a> f
 
 **Options:**
 ```YAML
-  -c, --check      Check value in file and backup file
-  -r, --restore    Restore backup to undo changes
-  -h, --help       Show this help message
-  -v, --version    Show the script version
+  -c, --check           Check value in file and backup file
+  -r, --restore         Restore backup to undo changes
+  -e, --email           Disable colored text in output scheduler emails.
+      --autoupdate=AGE  Auto update script (useful when script is scheduled)
+                          AGE is how many days old a release must be before
+                          auto-updating. AGE must be a number: 0 or greater
+  -h, --help            Show this help message
+  -v, --version         Show the script version
 ```
 
 **Extra Steps:**
