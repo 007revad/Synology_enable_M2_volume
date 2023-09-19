@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.0.8"
+scriptver="v1.0.9"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 
@@ -23,18 +23,6 @@ if [ ! "$(basename "$BASH")" = bash ]; then
 fi
 
 #echo -e "bash version: $(bash --version | head -1 | cut -d' ' -f4)\n"  # debug
-
-# Shell Colors
-#Black='\e[0;30m'   # ${Black}
-Red='\e[0;31m'      # ${Red}
-#Green='\e[0;32m'    # ${Green}
-Yellow='\e[0;33m'   # ${Yellow}
-#Blue='\e[0;34m'    # ${Blue}
-#Purple='\e[0;35m'  # ${Purple}
-Cyan='\e[0;36m'     # ${Cyan}
-#White='\e[0;37m'   # ${White}
-Error='\e[41m'      # ${Error}
-Off='\e[0m'         # ${Off}
 
 ding(){
     printf \\a
@@ -49,10 +37,12 @@ Usage: $(basename "$0") [options]
 Options:
   -c, --check      Check value in file and backup file
   -r, --restore    Restore backup to undo changes
+  -e, --email      Disable colored text in output scheduler emails.
   -h, --help       Show this help message
   -v, --version    Show the script version
   
 EOF
+    exit 0
 }
 
 
@@ -62,6 +52,7 @@ $script $scriptver - by 007revad
 
 See https://github.com/$repo
 EOF
+    exit 0
 }
 
 
@@ -70,8 +61,8 @@ args=("$@")
 
 
 # Check for flags with getopt
-if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -a \
-    -l check,restore,help,version,log,debug -- "$@")"; then
+if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -l \
+    check,restore,email,autoupdate:,help,version,log,debug -- "$@")"; then
     eval set -- "$options"
     while true; do
         case "${1,,}" in
@@ -81,13 +72,23 @@ if options="$(getopt -o abcdefghijklmnopqrstuvwxyz0123456789 -a \
             -r|--restore)       # Restore backup to undo changes
                 restore=yes
                 ;;
+            -e|--email)         # Disable colour text in task scheduler emails
+                color=no
+                ;;
+            --autoupdate)       # Auto update script
+                autoupdate=yes
+                if [[ $2 =~ ^[0-9]+$ ]]; then
+                    delay="$2"
+                    shift
+                else
+                    delay="0"
+                fi
+                ;;
             -h|--help)          # Show usage options
                 usage
-                exit
                 ;;
             -v|--version)       # Show script version
                 scriptversion
-                exit
                 ;;
             -l|--log)           # Log
                 #log=yes
@@ -118,6 +119,23 @@ if [[ $debug == "yes" ]]; then
 fi
 
 
+# Shell Colors
+if [[ $color != "no" ]]; then
+    #Black='\e[0;30m'   # ${Black}
+    Red='\e[0;31m'      # ${Red}
+    #Green='\e[0;32m'   # ${Green}
+    Yellow='\e[0;33m'   # ${Yellow}
+    #Blue='\e[0;34m'    # ${Blue}
+    #Purple='\e[0;35m'  # ${Purple}
+    Cyan='\e[0;36m'     # ${Cyan}
+    #White='\e[0;37m'   # ${White}
+    Error='\e[41m'      # ${Error}
+    Off='\e[0m'         # ${Off}
+else
+    echo ""  # For task scheduler email readability
+fi
+
+
 # Check script is running as root
 if [[ $( whoami ) != "root" ]]; then
     ding
@@ -136,7 +154,7 @@ fi
 
 # Check bc command exists
 if ! which bc >/dev/null ; then
-    echo -e "${Error}ERROR ${Off} bc command not found!\n"
+    echo -e "${Error}ERROR${Off} bc command not found!\n"
     #echo -e "This script needs the bc command, which is not included in DSM."
     echo -e "Please install ${Cyan}SynoCli misc. Tools${Off} from SynoCommunity."
     echo -e "  1. Package Center > Settings > Package Sources > Add"
@@ -174,18 +192,37 @@ echo "Using options: ${args[*]}"
 #------------------------------------------------------------------------------
 # Check latest release with GitHub API
 
-get_latest_release() {
-    # Curl timeout options:
-    # https://unix.stackexchange.com/questions/94604/does-curl-have-a-timeout
-    curl --silent -m 10 --connect-timeout 5 \
-        "https://api.github.com/repos/$1/releases/latest" |
-    grep '"tag_name":' |          # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'  # Pluck JSON value
+syslog_set(){
+    if [[ ${1,,} == "info" ]] || [[ ${1,,} == "warn" ]] || [[ ${1,,} == "err" ]]; then
+        if [[ $autoupdate == "yes" ]]; then
+            # Add entry to Synology system log
+            synologset1 sys "$1" 0x11100000 "$2"
+        fi
+    fi
 }
 
-tag=$(get_latest_release "$repo")
+
+# Get latest release info
+# Curl timeout options:
+# https://unix.stackexchange.com/questions/94604/does-curl-have-a-timeout
+release=$(curl --silent -m 10 --connect-timeout 5 \
+    "https://api.github.com/repos/$repo/releases/latest")
+
+# Release version
+tag=$(echo "$release" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 shorttag="${tag:1}"
-#scriptpath=$(dirname -- "$0")
+
+# Release published date
+published=$(echo "$release" | grep '"published_at":' | sed -E 's/.*"([^"]+)".*/\1/')
+published="${published:0:10}"
+published=$(date -d "$published" '+%s')
+
+# Today's date
+now=$(date '+%s')
+
+# Days since release published
+age=$(((now - published)/(60*60*24)))
+
 
 # Get script location
 # https://stackoverflow.com/questions/59895/
@@ -193,17 +230,53 @@ source=${BASH_SOURCE[0]}
 while [ -L "$source" ]; do # Resolve $source until the file is no longer a symlink
     scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
     source=$(readlink "$source")
-    # If $source was a relative symlink, we need to resolve it 
+    # If $source was a relative symlink, we need to resolve it
     # relative to the path where the symlink file was located
     [[ $source != /* ]] && source=$scriptpath/$source
 done
 scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
+scriptfile=$( basename -- "$source" )
+echo "Running from: ${scriptpath}/$scriptfile"
+
 #echo "Script location: $scriptpath"  # debug
+#echo "Source: $source"               # debug
+#echo "Script filename: $scriptfile"  # debug
+
+#echo "tag: $tag"              # debug
+#echo "scriptver: $scriptver"  # debug
+
+
+cleanup_tmp(){
+    cleanup_err=
+
+    # Delete downloaded .tar.gz file
+    if [[ -f "/tmp/$script-$shorttag.tar.gz" ]]; then
+        if ! rm "/tmp/$script-$shorttag.tar.gz"; then
+            echo -e "${Error}ERROR${Off} Failed to delete"\
+                "downloaded /tmp/$script-$shorttag.tar.gz!" >&2
+            cleanup_err=1
+        fi
+    fi
+
+    # Delete extracted tmp files
+    if [[ -d "/tmp/$script-$shorttag" ]]; then
+        if ! rm -r "/tmp/$script-$shorttag"; then
+            echo -e "${Error}ERROR${Off} Failed to delete"\
+                "downloaded /tmp/$script-$shorttag!" >&2
+            cleanup_err=1
+        fi
+    fi
+
+    # Add warning to DSM log
+    if [[ -z $cleanup_err ]]; then
+        syslog_set warn "$script update failed to delete tmp files"
+    fi
+}
 
 
 if ! printf "%s\n%s\n" "$tag" "$scriptver" |
-        sort --check --version-sort &> /dev/null ; then
-    echo -e "${Cyan}There is a newer version of this script available.${Off}"
+        sort --check=quiet --version-sort >/dev/null ; then
+    echo -e "\n${Cyan}There is a newer version of this script available.${Off}"
     echo -e "Current version: ${scriptver}\nLatest version:  $tag"
     if [[ -f $scriptpath/$script-$shorttag.tar.gz ]]; then
         # They have the latest version tar.gz downloaded but are using older version
@@ -214,82 +287,97 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
         echo "https://github.com/$repo/releases/latest"
         sleep 10
     else
-        echo -e "${Cyan}Do you want to download $tag now?${Off} [y/n]"
-        read -r -t 30 reply
+        if [[ $autoupdate == "yes" ]]; then
+            if [[ $age -gt "$delay" ]] || [[ $age -eq "$delay" ]]; then
+                echo "Downloading $tag"
+                reply=y
+            else
+                echo "Skipping as $tag is less than $delay days old."
+            fi
+        else
+            echo -e "${Cyan}Do you want to download $tag now?${Off} [y/n]"
+            read -r -t 30 reply
+        fi
+
         if [[ ${reply,,} == "y" ]]; then
+            # Delete previously downloaded .tar.gz file and extracted tmp files
+            cleanup_tmp
+
             if cd /tmp; then
                 url="https://github.com/$repo/archive/refs/tags/$tag.tar.gz"
-                if ! curl -LJO -m 30 --connect-timeout 5 "$url";
-                then
-                    echo -e "${Error}ERROR ${Off} Failed to download"\
+                if ! curl -JLO -m 30 --connect-timeout 5 "$url"; then
+                    echo -e "${Error}ERROR${Off} Failed to download"\
                         "$script-$shorttag.tar.gz!"
+                    syslog_set warn "$script $tag failed to download"
                 else
+
                     if [[ -f /tmp/$script-$shorttag.tar.gz ]]; then
                         # Extract tar file to /tmp/<script-name>
                         if ! tar -xf "/tmp/$script-$shorttag.tar.gz" -C "/tmp"; then
-                            echo -e "${Error}ERROR ${Off} Failed to"\
+                            echo -e "${Error}ERROR${Off} Failed to"\
                                 "extract $script-$shorttag.tar.gz!"
+                            syslog_set warn "$script failed to extract $script-$shorttag.tar.gz!"
                         else
-                            # Copy new script sh files to script location
-                            if ! cp -p "/tmp/$script-$shorttag/"*.sh "$scriptpath"; then
+                            # Set permissions on script sh files
+                            if ! chmod a+x "/tmp/$script-$shorttag/"*.sh ; then
+                                permerr=1
+                                echo -e "${Error}ERROR${Off} Failed to set executable permissions"
+                                syslog_set warn "$script failed to set permissions on $tag"
+                            fi
+
+                            # Copy new script sh file to script location
+                            if ! cp -p "/tmp/$script-$shorttag/syno_enable_m2_volume.sh" "${scriptpath}/${scriptfile}";
+                            then
                                 copyerr=1
-                                echo -e "${Error}ERROR ${Off} Failed to copy"\
+                                echo -e "${Error}ERROR${Off} Failed to copy"\
                                     "$script-$shorttag .sh file(s) to:\n $scriptpath"
-                            else                   
-                                # Set permsissions on CHANGES.txt
-                                if ! chmod 744 "$scriptpath/"*.sh ; then
-                                    permerr=1
-                                    echo -e "${Error}ERROR ${Off} Failed to set permissions on:"
-                                    echo "$scriptpath *.sh file(s)"
+                                syslog_set warn "$script failed to copy $tag to script location"
+                            fi
+
+                            # Copy new CHANGES.txt file
+                            if [[ $scriptpath =~ /volume* ]]; then
+                                # Copy new CHANGES.txt file to script location
+                                if ! cp -p "/tmp/$script-$shorttag/CHANGES.txt" "$scriptpath"; then
+                                    if [[ $autoupdate != "yes" ]]; then copyerr=1; fi
+                                    echo -e "${Error}ERROR${Off} Failed to copy"\
+                                        "$script-$shorttag/CHANGES.txt to:\n $scriptpath"
+                                else
+                                    # Set permissions on CHANGES.txt
+                                    if ! chmod 664 "$scriptpath/CHANGES.txt"; then
+                                        if [[ $autoupdate != "yes" ]]; then permerr=1; fi
+                                        echo -e "${Error}ERROR${Off} Failed to set permissions on:"
+                                        echo "$scriptpath/CHANGES.txt"
+                                    fi
+                                    changestxt=" and changes.txt"
                                 fi
                             fi
 
-                            # Copy new CHANGES.txt file to script location
-                            if ! cp -p "/tmp/$script-$shorttag/CHANGES.txt" "$scriptpath"; then
-                                copyerr=1
-                                echo -e "${Error}ERROR ${Off} Failed to copy"\
-                                    "$script-$shorttag/CHANGES.txt to:\n $scriptpath"
-                            else                   
-                                # Set permsissions on CHANGES.txt
-                                if ! chmod 744 "$scriptpath/CHANGES.txt"; then
-                                    permerr=1
-                                    echo -e "${Error}ERROR ${Off} Failed to set permissions on:"
-                                    echo "$scriptpath/CHANGES.txt"
-                                fi
-                            fi
-
-                            # Delete downloaded .tar.gz file
-                            if ! rm "/tmp/$script-$shorttag.tar.gz"; then
-                                #delerr=1
-                                echo -e "${Error}ERROR ${Off} Failed to delete"\
-                                    "downloaded /tmp/$script-$shorttag.tar.gz!"
-                            fi
-
-                            # Delete extracted tmp files
-                            if ! rm -r "/tmp/$script-$shorttag"; then
-                                #delerr=1
-                                echo -e "${Error}ERROR ${Off} Failed to delete"\
-                                    "downloaded /tmp/$script-$shorttag!"
-                            fi
+                            # Delete downloaded .tar.gz file and extracted tmp files
+                            cleanup_tmp
 
                             # Notify of success (if there were no errors)
                             if [[ $copyerr != 1 ]] && [[ $permerr != 1 ]]; then
-                                echo -e "\n$tag and changes.txt downloaded to:"\
-                                    "$scriptpath"
+                                echo -e "\n$tag$changestxt downloaded to: ${scriptpath}\n"
+                                syslog_set info "$script successfully updated to $tag"
 
                                 # Reload script
                                 printf -- '-%.0s' {1..79}; echo  # print 79 -
                                 exec "$0" "${args[@]}"
+                            else
+                                syslog_set warn "$script update to $tag had errors"
                             fi
                         fi
                     else
-                        echo -e "${Error}ERROR ${Off}"\
+                        echo -e "${Error}ERROR${Off}"\
                             "/tmp/$script-$shorttag.tar.gz not found!"
                         #ls /tmp | grep "$script"  # debug
+                        syslog_set warn "/tmp/$script-$shorttag.tar.gz not found"
                     fi
                 fi
+                cd "$scriptpath" || echo -e "${Error}ERROR${Off} Failed to cd to script location!"
             else
-                echo -e "${Error}ERROR ${Off} Failed to cd to /tmp!"
+                echo -e "${Error}ERROR${Off} Failed to cd to /tmp!"
+                syslog_set warn "$script update failed to cd to /tmp"
             fi
         fi
     fi
@@ -315,7 +403,7 @@ file="/usr/lib/libhwcontrol.so.1"
 
 if [[ ! -f ${file} ]]; then
     ding
-    echo -e "${Error}ERROR ${Off} File not found!"
+    echo -e "${Error}ERROR${Off} File not found!"
     exit 1
 fi
 
@@ -345,12 +433,12 @@ if [[ $restore == "yes" ]]; then
             exit
         else
             ding
-            echo -e "${Error}ERROR ${Off} Backup failed!"
+            echo -e "${Error}ERROR${Off} Backup failed!"
             exit 1
         fi
     else
         ding
-        echo -e "${Error}ERROR ${Off} Backup file not found!"
+        echo -e "${Error}ERROR${Off} Backup file not found!"
         exit 1
     fi
 fi
@@ -364,7 +452,7 @@ if [[ ! -f ${file}.bak ]]; then
         echo "Backup successful."
     else
         ding
-        echo -e "${Error}ERROR ${Off} Backup failed!"
+        echo -e "${Error}ERROR${Off} Backup failed!"
         exit 1
     fi
 else
@@ -380,7 +468,7 @@ else
             echo "Backup successful."
         else
             ding
-            echo -e "${Error}ERROR ${Off} Backup failed!"
+            echo -e "${Error}ERROR${Off} Backup failed!"
             exit 1
         fi
     else
@@ -509,7 +597,7 @@ fi
 posrep=$(printf "%x\n" $((0x${poshex}+8)))
 if ! printf %s "${posrep}: 9090" | xxd -r - "$file"; then
     ding
-    echo -e "${Error}ERROR ${Off} Failed to edit file!"
+    echo -e "${Error}ERROR${Off} Failed to edit file!"
     exit 1
 fi
 
@@ -526,7 +614,7 @@ if [[ $bytes == "9090" ]]; then
         "pool in Storage Manager.${Off}"
 else
     ding
-    echo -e "${Error}ERROR ${Off} Failed to edit file!"
+    echo -e "${Error}ERROR${Off} Failed to edit file!"
     exit 1
 fi
 
@@ -583,8 +671,8 @@ fi
 # Enable creating M.2 storage pool and volume in Storage Manager
 # for currently installed NVMe drives
 for nvme in /run/synostorage/disks/nvme*; do
-    if [[ -f /run/synostorage/disks/"$(basename -- "$1")"/m2_pool_support ]]; then
-        echo 1 > /run/synostorage/disks/"$(basename -- "$nvme")"/m2_pool_support
+    if [[ -f "${nvme}/m2_pool_support" ]]; then
+        echo 1 > "${nvme}/m2_pool_support"
     fi
 done
 
