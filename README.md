@@ -112,17 +112,6 @@ If you run this script then use Storage Manager to create your M.2 storage pool 
 
 Your volume also survives reboots and DSM updates.
 
-## Requirements
-
-Because the bc command is not included in DSM you need to install **SynoCli misc. Tools** from SynoCommunity for this script to work.
-
-1. Package Center > Settings > Package Sources > Add
-2. Name: SynoCommunity
-3. Location: `https://packages.synocommunity.com/`
-4. Click OK and OK again.
-5. Click Community on the left.
-6. Install **SynoCli misc. Tools**
-
 ### Download the script
 
 See <a href=images/how_to_download_generic.png/>How to download the script</a> for the easiest way to download the script.
@@ -140,10 +129,15 @@ See <a href=images/how_to_download_generic.png/>How to download the script</a> f
 
 **Options:**
 ```YAML
-  -c, --check      Check value in file and backup file
-  -r, --restore    Restore backup to undo changes
-  -h, --help       Show this help message
-  -v, --version    Show the script version
+  -c, --check           Check value in file and backup file
+  -r, --restore         Restore backup to undo changes
+  -n, --noreboot        Don't reboot after script has run
+  -e, --email           Disable colored text in output scheduler emails
+      --autoupdate=AGE  Auto update script (useful when script is scheduled)
+                          AGE is how many days old a release must be before
+                          auto-updating. AGE must be a number: 0 or greater
+  -h, --help            Show this help message
+  -v, --version         Show the script version
 ```
 
 **Extra Steps:**
