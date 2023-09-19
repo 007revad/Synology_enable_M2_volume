@@ -1,3 +1,13 @@
+v1.0.9
+- Added --autoupdate=[age] option to auto update synology_hdd_db x days after new version released.
+    - Autoupdate logs update success or errors to DSM system log.
+- Added -e --email option to disable coloured output to make task scheduler emails easier to read.
+- Bug fix for script not updating itself if .sh file had been renamed.
+- Bug fix for missing executable permissions if .sh file had been renamed.
+- Bug fix to prevent update loop if script's .tar.gz file already exists in /tmp.
+- Bug fix to prevent update failing if script's temp folder already exists in /tmp.
+- Now only copies CHANGES.txt to script location if script is located on a volume, to prevent putting CHANGES.txt on system partition (/usr/bin, /usr/sbin, /root etc.)
+
 v1.0.8
 - Now script automatically reloads itself after updating.
 - Bug fix to prevent error if NVMe drive not found in /run/synostorage/disks/
