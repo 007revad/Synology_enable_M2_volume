@@ -5,7 +5,7 @@ v1.0.10
 - Bug fix added --email and --autoupdate to --help
 
 v1.0.9
-- Added --autoupdate=[age] option to auto update synology_hdd_db x days after new version released.
+- Added --autoupdate=[age] option to auto update syno_enable_m2_volume x days after new version released.
     - Autoupdate logs update success or errors to DSM system log.
 - Added -e --email option to disable coloured output to make task scheduler emails easier to read.
 - Bug fix for script not updating itself if .sh file had been renamed.
