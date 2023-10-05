@@ -44,6 +44,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 1   | yes |
 | DS1522+      | R1000 | DSM 7.2-64561            | yes |
 | DS1522+      | R1000 | DSM 7.1.1-42962 Update 4 | **No** | Use newer DSM version |
+| DS1520+      | Geminilake | DSM 7.2.1-69057     | yes |
 | DS1019+      | Apollolake | DSM 7.2-64570 Update 3   | yes |
 | DS1019+      | Apollolake | DSM 7.2-64570 Update 1   | yes |
 | DS1019+      | Apollolake | DSM 7.2-64561            | yes |
