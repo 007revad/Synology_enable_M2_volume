@@ -1,3 +1,7 @@
+v1.1.11
+- Now only downloads bc if not in PATH or in script location.
+- Now asks to download bc (if --autoupdate option not used).
+
 v1.0.10
 - Added -n, --noreboot option to never reboot after script has run.
 - Changed to only ask to reboot if script patched file and -n, --noreboot option not used.
