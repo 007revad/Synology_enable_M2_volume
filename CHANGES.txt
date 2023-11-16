@@ -1,6 +1,6 @@
-v1.1.11
-- Now only downloads bc if not in PATH or in script location.
-- Now asks to download bc (if --autoupdate option not used).
+v1.1.11-RC
+- Now only downloads bc if bc is not found in PATH or in script location.
+- Now asks to download bc if --autoupdate option not used.
 
 v1.0.10
 - Added -n, --noreboot option to never reboot after script has run.
