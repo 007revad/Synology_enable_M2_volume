@@ -55,7 +55,8 @@ scriptversion(){
     cat <<EOF
 $script $scriptver - by 007revad
 
-See https://github.com/$repo 
+See https://github.com/$repo
+  
 EOF
     exit 0
 }
