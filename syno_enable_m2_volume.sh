@@ -56,6 +56,7 @@ scriptversion(){
 $script $scriptver - by 007revad
 
 See https://github.com/$repo
+
 EOF
     exit 0
 }
