@@ -45,6 +45,7 @@ Options:
                           auto-updating. AGE must be a number: 0 or greater
   -h, --help            Show this help message
   -v, --version         Show the script version
+
 EOF
     exit 0
 }
