@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.1.11"
+scriptver="v1.1.12"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 scriptname=syno_enable_m2_volume
@@ -25,11 +25,11 @@ fi
 
 #echo -e "bash version: $(bash --version | head -1 | cut -d' ' -f4)\n"  # debug
 
-ding(){
+ding(){ 
     printf \\a
 }
 
-usage(){
+usage(){ 
     cat <<EOF
 $script $scriptver - by 007revad
 
@@ -51,7 +51,7 @@ EOF
 }
 
 
-scriptversion(){
+scriptversion(){ 
     cat <<EOF
 $script $scriptver - by 007revad
 
@@ -189,16 +189,31 @@ if [[ $storagemgrver ]]; then echo -e "StorageManager $storagemgrver\n"; fi
 echo "Using options: ${args[*]}"
 
 
+# Get script location
+# https://stackoverflow.com/questions/59895/
+source=${BASH_SOURCE[0]}
+while [ -L "$source" ]; do # Resolve $source until the file is no longer a symlink
+    scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
+    source=$(readlink "$source")
+    # If $source was a relative symlink, we need to resolve it
+    # relative to the path where the symlink file was located
+    [[ $source != /* ]] && source=$scriptpath/$source
+done
+scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
+scriptfile=$( basename -- "$source" )
+echo "Running from: ${scriptpath}/$scriptfile"
+
+
 #------------------------------------------------------------------------------
 # Install bc command if missing
 
 if ! which bc >/dev/null ; then
-    if [[ -f ./dtb/${modelname}_model.dtb ]]; then
+    if [[ -f "${scriptpath}/bin/bc" ]]; then
         # bc exists in bin folder in script location
-        bcfile="./bin/bc"
-    elif [[ -f ./${modelname}_model.dtb ]]; then
+        bcfile="${scriptpath}/bin/bc"
+    elif [[ -f "${scriptpath}/bc" ]]; then
         # bc exists in same folder as script
-        bcfile="./bc"
+        bcfile="${scriptpath}/bc"
     else
         # Download bc
         if [[ $autoupdate == "yes" ]]; then
@@ -216,7 +231,7 @@ if ! which bc >/dev/null ; then
         else
             echo "Cannot run without bc!"
             exit 1
-        if
+        fi
     fi
 
     # Set bc executable
@@ -241,7 +256,7 @@ fi
 #------------------------------------------------------------------------------
 # Check latest release with GitHub API
 
-syslog_set(){
+syslog_set(){ 
     if [[ ${1,,} == "info" ]] || [[ ${1,,} == "warn" ]] || [[ ${1,,} == "err" ]]; then
         if [[ $autoupdate == "yes" ]]; then
             # Add entry to Synology system log
@@ -274,18 +289,18 @@ age=$(((now - published)/(60*60*24)))
 
 
 # Get script location
-# https://stackoverflow.com/questions/59895/
-source=${BASH_SOURCE[0]}
-while [ -L "$source" ]; do # Resolve $source until the file is no longer a symlink
-    scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
-    source=$(readlink "$source")
-    # If $source was a relative symlink, we need to resolve it
-    # relative to the path where the symlink file was located
-    [[ $source != /* ]] && source=$scriptpath/$source
-done
-scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
-scriptfile=$( basename -- "$source" )
-echo "Running from: ${scriptpath}/$scriptfile"
+# # https://stackoverflow.com/questions/59895/
+# source=${BASH_SOURCE[0]}
+# while [ -L "$source" ]; do # Resolve $source until the file is no longer a symlink
+#     scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
+#     source=$(readlink "$source")
+#     # If $source was a relative symlink, we need to resolve it
+#     # relative to the path where the symlink file was located
+#     [[ $source != /* ]] && source=$scriptpath/$source
+# done
+# scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
+# scriptfile=$( basename -- "$source" )
+# echo "Running from: ${scriptpath}/$scriptfile"
 
 #echo "Script location: $scriptpath"  # debug
 #echo "Source: $source"               # debug
@@ -295,7 +310,7 @@ echo "Running from: ${scriptpath}/$scriptfile"
 #echo "scriptver: $scriptver"  # debug
 
 
-cleanup_tmp(){
+cleanup_tmp(){ 
     cleanup_err=
 
     # Delete downloaded .tar.gz file
@@ -432,7 +447,7 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
     fi
 fi
 
-rebootmsg(){
+rebootmsg(){ 
     # Reboot prompt
     echo -e "\n${Cyan}The Synology needs to restart.${Off}"
     echo -e "Type ${Cyan}yes${Off} to reboot now."
@@ -532,7 +547,7 @@ fi
 #----------------------------------------------------------
 # Edit file
 
-findbytes(){
+findbytes(){ 
     # Get decimal position of matching hex string
     match=$(od -v -t x1 "$1" |
     sed 's/[^ ]* *//' |
