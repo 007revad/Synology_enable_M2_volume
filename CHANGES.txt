@@ -1,3 +1,6 @@
+v1.1.12-RC
+- Bug fix for getting bc location.
+
 v1.1.11-RC
 - Now only downloads bc if bc is not found in PATH or in script location.
 - Now asks to download bc if --autoupdate option not used.
