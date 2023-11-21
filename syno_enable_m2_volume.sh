@@ -258,7 +258,7 @@ fi
 bcfile=$(which bc)
 if [[ ! -x "$bcfile" ]]; then
     ding
-    echo "bc not found or not executable!"
+    echo -e "${Error}ERROR${Off} bc not found or not executable!"
     echo "bc: $bcfile"
     exit 1
 fi
