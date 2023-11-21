@@ -1,9 +1,0 @@
-Because the bc command is not included in DSM you need to install "SynoCli misc. Tools" from SynoCommunity for this script to work.
-
-1. Package Center > Settings > Package Sources > Add
-2. Name:  SynoCommunity
-3. Location: https://packages.synocommunity.com/
-4. Click OK and OK again.
-5. Click Community on the left.
-6. Install SynoCli misc. Tools
-
