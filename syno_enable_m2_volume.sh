@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.1.12"
+scriptver="v1.1.13"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 scriptname=syno_enable_m2_volume
@@ -228,8 +228,19 @@ if ! which bc >/dev/null ; then
             echo -e "\nDownloading bc"
             curl -kL "https://raw.githubusercontent.com/${repo}/main/bin/bc" -o /tmp/bc
             bcfile="/tmp/bc"
+
+            printf "Downloaded md5: "
+            md5sum -b "$bcfile" | awk '{print $1}'
+
+            md5=$(md5sum -b "$bcfile" | awk '{print $1}')
+            md5hash="40b9e1ea3d8337364155561e694ad402"
+            if [[ $md5 != "$md5hash" ]]; then
+                echo "Expected md5:   $md5hash"
+                echo -e "${Error}ERROR${Off} Downloaded bc md5 hash does not match!"
+                exit 1
+            fi
         else
-            echo "Cannot run without bc!"
+            echo -e "${Error}ERROR${Off} Cannot run without bc!"
             exit 1
         fi
     fi
@@ -457,9 +468,11 @@ rebootmsg(){
 
 #    # Reboot in the background so user can see DSM's "going down" message
 #    reboot &
-    [ -x /usr/syno/sbin/synopoweroff ] &&
-    /usr/syno/sbin/synopoweroff -r ||
-    reboot
+    if [[ -x /usr/syno/sbin/synopoweroff ]]; then
+        /usr/syno/sbin/synopoweroff -r || reboot
+    else
+        reboot
+    fi
 }
 
 
