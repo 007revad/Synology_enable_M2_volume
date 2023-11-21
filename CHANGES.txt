@@ -1,3 +1,9 @@
+v1.1.13
+- Changed to avoid downloading malicious file if GitHub account is hacked:
+    - Now only downloads bc if bc is not found in PATH or in script location.
+    - Now asks to download bc if --autoupdate option not used.
+    - Now checks md5 hash of downloaded bc file.
+
 v1.1.12-RC
 - Bug fix for getting bc location.
 
