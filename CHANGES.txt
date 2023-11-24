@@ -1,3 +1,6 @@
+V1.1.14
+- Removed the need for bc by using xargs instead.
+
 v1.1.13
 - Changed to avoid downloading malicious file if GitHub account is hacked:
     - Now only downloads bc if bc is not found in PATH or in script location.
