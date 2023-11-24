@@ -205,66 +205,6 @@ echo "Running from: ${scriptpath}/$scriptfile"
 
 
 #------------------------------------------------------------------------------
-# Install bc command if missing
-
-if ! which bc >/dev/null ; then
-    if [[ -f "${scriptpath}/bin/bc" ]]; then
-        # bc exists in bin folder in script location
-        bcfile="${scriptpath}/bin/bc"
-    elif [[ -f "${scriptpath}/bc" ]]; then
-        # bc exists in same folder as script
-        bcfile="${scriptpath}/bc"
-    else
-        # Download bc
-        if [[ $autoupdate == "yes" ]]; then
-            reply=y
-        else
-            echo "Need to download bc."
-            echo -e "${Cyan}Do you want to download bc?${Off} [y/n]"
-            read -r -t 30 reply
-        fi
-
-        if [[ ${reply,,} == "y" ]]; then
-            echo -e "\nDownloading bc"
-            curl -kL "https://raw.githubusercontent.com/${repo}/main/bin/bc" -o /tmp/bc
-            bcfile="/tmp/bc"
-
-            printf "Downloaded md5: "
-            md5sum -b "$bcfile" | awk '{print $1}'
-
-            md5=$(md5sum -b "$bcfile" | awk '{print $1}')
-            md5hash="40b9e1ea3d8337364155561e694ad402"
-            if [[ $md5 != "$md5hash" ]]; then
-                echo "Expected md5:   $md5hash"
-                echo -e "${Error}ERROR${Off} Downloaded bc md5 hash does not match!"
-                exit 1
-            fi
-        else
-            echo -e "${Error}ERROR${Off} Cannot run without bc!"
-            exit 1
-        fi
-    fi
-
-    # Set bc executable
-    #chmod a+x /tmp/bc
-    chmod a+x "$bcfile"
-
-    # Copy bc to /usr/bin
-    #cp -p /tmp/bc /usr/bin/bc
-    cp -p "$bcfile" /usr/bin/bc
-fi
-
-# Check bc is executable
-bcfile=$(which bc)
-if [[ ! -x "$bcfile" ]]; then
-    ding
-    echo -e "${Error}ERROR${Off} bc not found or not executable!"
-    echo "bc: $bcfile"
-    exit 1
-fi
-
-
-#------------------------------------------------------------------------------
 # Check latest release with GitHub API
 
 syslog_set(){ 
@@ -566,9 +506,8 @@ findbytes(){
     sed 's/[^ ]* *//' |
     tr '\012' ' ' |
     grep -b -i -o "$hexstring" |
-    #grep -b -i -o "$hexstring ".. |
-    sed 's/:.*/\/3/' |
-    bc)
+    cut -d ':' -f 1 |
+    xargs -I % expr % / 3)
 
     # Convert decimal position of matching hex string to hex
     array=("$match")
