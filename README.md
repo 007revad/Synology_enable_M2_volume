@@ -199,5 +199,5 @@ Here's the result after running the script and rebooting. Note that the strorage
 **Credits**
 - K4LO from the XPenology forum.
 - prt1999 for pointing me to K4LO.
-- capullo for replacing bc with xargs.
+- capull0 for replacing bc with xargs.
 
