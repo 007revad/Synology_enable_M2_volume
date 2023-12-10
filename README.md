@@ -11,7 +11,7 @@ Enable creating volumes with non-Synology M.2 drives
 
 This script will:
 - Enable creating M.2 storage pools and volumes all from within Storage Manager.
-- Enable Health Info for non-Synology NVMe drives.
+- Enable Health Info for non-Synology NVMe drives (not in DSM 7.2.1 or later).
 
 It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list of which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for creating M.2 volumes, and some '21 and newer enterprise models.
 
