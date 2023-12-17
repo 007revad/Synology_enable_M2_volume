@@ -19,6 +19,9 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 | Model        | CPU Arch | DSM version              | Works | Note |
 | ------------ |----------|--------------------------|-------|------|
+| **E10M20-T1** | | DSM 7.2.1 and later | **No** | Use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> |
+| **M2D20**    | | DSM 7.2.1 and later | **No** | Use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> |
+| **M2D18**    | | DSM 7.2.1 and later | **No** | Use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> |
 | **E10M20-T1** | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
 | **M2D20**    | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
 | **M2D18**    | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
