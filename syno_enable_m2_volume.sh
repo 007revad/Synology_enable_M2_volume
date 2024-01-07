@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.1.13"
+scriptver="v1.1.15"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 scriptname=syno_enable_m2_volume
@@ -147,7 +147,7 @@ fi
 # Check script is running as root
 if [[ $( whoami ) != "root" ]]; then
     ding
-    echo -e "${Error}ERROR${Off} This script must be run as root or sudo!"
+    echo -e "${Error}ERROR${Off} This script must be run as sudo or root!"
     exit 1
 fi
 
@@ -202,6 +202,15 @@ done
 scriptpath=$( cd -P "$( dirname "$source" )" >/dev/null 2>&1 && pwd )
 scriptfile=$( basename -- "$source" )
 echo "Running from: ${scriptpath}/$scriptfile"
+
+
+# Warn if script located on M.2 drive
+scriptvol=$(echo "$scriptpath" | cut -d"/" -f2)
+vg=$(lvdisplay | grep /volume_"${scriptvol#volume}" | cut -d"/" -f3)
+md=$(pvdisplay | grep -B 1 -E '[ ]'"$vg" | grep /dev/ | cut -d"/" -f3)
+if cat /proc/mdstat | grep "$md" | grep nvme >/dev/null; then
+    echo -e "${Yellow}WARNING${Off} Don't store this script on an NVMe volume!"
+fi
 
 
 #------------------------------------------------------------------------------
@@ -325,7 +334,6 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
                         "$script-$shorttag.tar.gz!"
                     syslog_set warn "$script $tag failed to download"
                 else
-
                     if [[ -f /tmp/$script-$shorttag.tar.gz ]]; then
                         # Extract tar file to /tmp/<script-name>
                         if ! tar -xf "/tmp/$script-$shorttag.tar.gz" -C "/tmp"; then
@@ -341,7 +349,7 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
                             fi
 
                             # Copy new script sh file to script location
-                            if ! cp -p "/tmp/$script-$shorttag/$scriptname.sh" "${scriptpath}/${scriptfile}";
+                            if ! cp -p "/tmp/$script-$shorttag/${scriptname}.sh" "${scriptpath}/${scriptfile}";
                             then
                                 copyerr=1
                                 echo -e "${Error}ERROR${Off} Failed to copy"\
@@ -352,7 +360,9 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
                             # Copy new CHANGES.txt file
                             if [[ $scriptpath =~ /volume* ]]; then
                                 # Copy new CHANGES.txt file to script location
-                                if ! cp -p "/tmp/$script-$shorttag/CHANGES.txt" "$scriptpath"; then
+                                if ! cp -p "/tmp/$script-$shorttag/CHANGES.txt"\
+                                    "${scriptpath}/${scriptname}_CHANGES.txt";
+                                then
                                     if [[ $autoupdate != "yes" ]]; then copyerr=1; fi
                                     echo -e "${Error}ERROR${Off} Failed to copy"\
                                         "$script-$shorttag/CHANGES.txt to:\n $scriptpath"
@@ -372,7 +382,7 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
 
                             # Notify of success (if there were no errors)
                             if [[ $copyerr != 1 ]] && [[ $permerr != 1 ]]; then
-                                echo -e "\n$tag$changestxt downloaded to: ${scriptpath}\n"
+                                echo -e "\n$tag ${scriptfile}$changestxt downloaded to: ${scriptpath}\n"
                                 syslog_set info "$script successfully updated to $tag"
 
                                 # Reload script
@@ -692,7 +702,7 @@ fi
 # for currently installed NVMe drives
 for nvme in /run/synostorage/disks/nvme*; do
     if [[ -f "${nvme}/m2_pool_support" ]]; then
-        echo 1 > "${nvme}/m2_pool_support"
+        echo -n 1 > "${nvme}/m2_pool_support"
     fi
 done
 
