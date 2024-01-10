@@ -15,7 +15,10 @@ This script will:
 
 It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list of which models it will work with, I don't know yet. I do know it does work on models listed by Synology as supported for creating M.2 volumes, and some '21 and newer enterprise models.
 
-**Confirmed working on:**
+### Confirmed working on
+
+<details>
+  <summary>Click here to see list</summary>
 
 | Model        | CPU Arch | DSM version              | Works | Note |
 | ------------ |----------|--------------------------|-------|------|
@@ -68,6 +71,8 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | DS918+       | Apollolake | DSM 7.2-64561             | yes |
 | DS918+       | Apollolake | DSM 7.1.1-42962 Update 5  | **No** | Use newer DSM version |
 | DS3617xs     | Broadwell | DSM 7.x                    | **No** | Not working with any DSM version |
+
+</details>
 
 ### How is this different to the Synology_M2_volume script?
 
