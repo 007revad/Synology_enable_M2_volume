@@ -1,3 +1,7 @@
+v1.1.17
+- Improved script updating itself.
+- Now checks script is running on a Synology NAS.
+
 v1.1.15
 - Now warns if script is located on an NVMe drive.
 - Now saves changes.txt as <script-filename>_changes.txt when updating the script.
