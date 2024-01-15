@@ -128,9 +128,10 @@ Your volume also survives reboots and DSM updates.
 
 ### Download the script
 
-See <a href=images/how_to_download_generic.png/>How to download the script</a> for the easiest way to download the script.
-
-Do ***NOT*** save the script to a M.2 volume. The M.2 volume won't be available until after the script has run.
+1. Download the latest version _Source code (zip)_ from https://github.com/007revad/Synology_enable_M2_volume/releases
+2. Save the download zip file to a folder on the Synology.
+    - Do ***NOT*** save the script to a M.2 volume. The M.2 volume may not be available until after the script has run.
+3. Unzip the zip file.
 
 ## How to run the script
 
