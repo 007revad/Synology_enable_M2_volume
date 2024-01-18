@@ -29,6 +29,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | **M2D20**    | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
 | **M2D18**    | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> |
 ||
+| DS923+       | R1000 | DSM 7.2.1-69057 Update 4       | yes |
 | DS923+       | R1000 | DSM 7.2-64570 Update 3         | yes |
 | DS923+       | R1000 | DSM 7.2-64561                  | yes |
 | DS923+       | R1000 | DSM 7.1.1-42962 Update 4       | yes |
