@@ -143,7 +143,7 @@ Your volume also survives reboots and DSM updates.
 **Note:** Replace /volume1/scripts/ with the path to where the script is located.
 1. Run the script then reboot the Synology:
     ```YAML
-    sudo -i /volume1/scripts/syno_enable_m2_volume.sh
+    sudo -s /volume1/scripts/syno_enable_m2_volume.sh
     ```
 2. Go to Storage Manager and create your M.2 storage pool and volume(s).
 
@@ -165,7 +165,7 @@ Your volume also survives reboots and DSM updates.
 To get rid of <a href="images/notification.png">drive database outdated</a> notifications and <a href=images/before_running_syno_hdd_db.png>unrecognised firmware</a> warnings run <a href=https://github.com/007revad/Synology_HDD_db>Synology_HDD_db</a> which will add your drives to DSM's compatibile drive databases, and prevent the drive compatability databases being updated between DSM updates.
 
 ```YAML
-sudo -i /path-to-script/syno_hdd_db.sh --noupdate
+sudo -s /path-to-script/syno_hdd_db.sh --noupdate
 ```
 
 ### What about DSM updates?
