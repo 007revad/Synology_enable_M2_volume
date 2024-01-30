@@ -109,7 +109,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | Ease of use              | Easy                                    | Easy                                    | Medium                            |
 | Prompts for answers      | No                                      | No                                      | Yes, multiple times               |
 | Online Assemble required | No                                      | No                                      | DSM 7 Yes - DSM 6 No              |
-| RAID levels supported    | Basic, RAID 0, RAID 1, 5, 6, 10, SHR, SHR-2, JBOD, RAID F1 (see Note 1 and 2) | Basic, RAID 0, RAID 1, SHR, JBOD, RAID F1 (see Note 1) | Basic, RAID 0, 1, 5, 6 and 10 (see Note 2) |
+| RAID levels supported    | Basic, RAID 0, 1, 5, 6, 10, SHR, SHR-2, JBOD and RAID F1 (see Notes 1 and 2) | Basic, RAID 0, 1, SHR, JBOD and RAID F1 (see Note 1) | Basic, RAID 0, 1, 5, 6 and 10 (see Note 2) |
 | Add drive(s) to RAID     | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
 | Change RAID type         | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
 | RAID repair              | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
