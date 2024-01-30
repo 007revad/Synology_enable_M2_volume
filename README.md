@@ -102,24 +102,25 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Works for M.2 drives in a M2D20, M2D18, M2D17 or E10M20-T1.
     - Works for creating a storage pool/volume spanning internal NVMe drives and NVMe drives in a Synology M.2 PCIe card.
 
-| Feature                  | Synology_enable_M2_volume                     | Synology_M2_volume                |
-|--------------------------|-----------------------------------------------|-----------------------------------|
-| Non-Synology M.2 drives  | Yes                                           | Yes                               |
-| Ease of use              | Easy                                          | Medium                            |
-| Prompts for answers      | No                                            | Yes, multiple times               |
-| Online Assemble required | No                                            | DSM 7 Yes - DSM 6 No              |
-| RAID levels supported    | Basic, RAID 0, RAID 1, **SHR**, **JBOD**, **RAID F1** (see Note) | Basic, RAID 0, 1, **5, 6 and 10** (see Note 2) |
-| Add drive(s) to RAID     | Yes, via Storage Manager                      | No                                |
-| Change RAID type         | Yes, via Storage Manager                      | No                                |
-| RAID repair              | Yes, via Storage Manager                      | No                                |
-| RAID expansion           | Yes, via Storage Manager                      | No                                |
-| NVMe Health Info         | Yes                                           | No                                |
-| DSM version              | DSM 7.2 (and 7.1.1 for some NAS models)       | Any DSM version                   |
-| M.2 drive location       | Internal M.2 slots only                       | Internal M.2 and **Synology M.2 PCie cards** |
-| Span internal/PCIe NVMes | No                                            | Yes                               |
-| What it does             | Edits 1 file in DSM                           | Creates partitons on M.2 drive(s) |
+| Feature                  | Synology_HDD_db                         | Synology_enable_M2_volume               | Synology_M2_volume                |
+|--------------------------|-----------------------------------------|-----------------------------------------|-----------------------------------|
+| DSM version              | DSM 7.2 and later                       | DSM 7.2 and later                       | Any DSM version                   |
+| Non-Synology M.2 drives  | Yes                                     | Yes                                     | Yes                               |
+| Ease of use              | Easy                                    | Easy                                    | Medium                            |
+| Prompts for answers      | No                                      | No                                      | Yes, multiple times               |
+| Online Assemble required | No                                      | No                                      | DSM 7 Yes - DSM 6 No              |
+| RAID levels supported    | Basic, RAID 0, RAID 1, 5, 6, 10, SHR, SHR-2, JBOD, RAID F1 (see Note 1 and 2) | Basic, RAID 0, RAID 1, SHR, JBOD, RAID F1 (see Note 1) | Basic, RAID 0, 1, 5, 6 and 10 (see Note 2) |
+| Add drive(s) to RAID     | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
+| Change RAID type         | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
+| RAID repair              | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
+| RAID expansion           | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
+| NVMe Health Info         | Yes                                     | Yes                                     | No                                |
+| DSM version              | DSM 7.2 (and 7.1.1 for some NAS models) | Any DSM version                   |
+| M.2 drive location       | Internal M.2 and **Synology M.2 PCie cards** | Internal M.2 slots only                 | Internal M.2 and **Synology M.2 PCie cards** |
+| Span internal/PCIe NVMes | Yes                                     | No                                      | Yes                               |
+| What it does             | Edits a few files in DSM                | Edits 1 file in DSM                     | Creates partitons on M.2 drive(s) |
 
-***Note:*** RAID F1 requires a Synology model that supports RAID F1.
+***Note 1:*** RAID F1 requires a Synology model that supports RAID F1.
 
 ***Note 2:*** RAID 5 requires 3 or more NVMe drives. RAID 6 and 10 require 4 or more NVMe drives.
 
