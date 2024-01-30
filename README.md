@@ -104,7 +104,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 | Feature                  | Synology_HDD_db                         | Synology_enable_M2_volume               | Synology_M2_volume                |
 |--------------------------|-----------------------------------------|-----------------------------------------|-----------------------------------|
-| DSM version              | DSM 7.2 and later                       | DSM 7.2 and later                       | Any DSM version                   |
+| DSM version              | DSM 7.2 and later                       | DSM 7.2 and later                       | DSM 6 and later                   |
 | Non-Synology M.2 drives  | Yes                                     | Yes                                     | Yes                               |
 | Ease of use              | Easy                                    | Easy                                    | Medium                            |
 | Prompts for answers      | No                                      | No                                      | Yes, multiple times               |
