@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.1.18"
+scriptver="v1.1.19"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 scriptname=syno_enable_m2_volume
@@ -373,7 +373,7 @@ if ! printf "%s\n%s\n" "$tag" "$scriptver" |
 
                                 # Reload script
                                 printf -- '-%.0s' {1..79}; echo  # print 79 -
-                                exec "$0" "${args[@]}"
+                                exec "${scriptpath}/$scriptfile" "${args[@]}"
                             else
                                 syslog_set warn "$script update to $tag had errors"
                             fi
