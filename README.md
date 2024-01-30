@@ -116,7 +116,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | RAID expansion           | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
 | NVMe Health Info         | Yes                                     | Yes                                     | No                                |
 | DSM version              | DSM 7.2 (and 7.1.1 for some NAS models) | Any DSM version                   |
-| M.2 drive location       | Internal M.2 and **Synology M.2 PCie cards** | Internal M.2 slots only                 | Internal M.2 and **Synology M.2 PCie cards** |
+| M.2 drive location       | Internal M.2 and Synology M.2 PCie cards | Internal M.2 slots only                 | Internal M.2 and Synology M.2 PCie cards |
 | Span internal/PCIe NVMes | Yes                                     | No                                      | Yes                               |
 | What it does             | Edits a few files in DSM                | Edits 1 file in DSM                     | Creates partitons on M.2 drive(s) |
 
