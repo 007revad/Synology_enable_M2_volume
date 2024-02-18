@@ -88,6 +88,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Works with DSM 7.2 beta and 7.1.1 (may work with DSM 7.1 and 7.0).
     - Works with any brand M.2 drives.
     - May only work with models Synology listed as supporting M.2 volumes.
+    - Can be scheduled to run at boot or shut down.
     - Does **NOT** work for M.2 drives in a M2D20, M2D18, M2D17 or E10M20-T1.
     - Does **NOT** allow creating a storage pool/volume spanning internal NVMe drives and NVMe drives in a Synology M.2 PCIe card.
 
@@ -102,6 +103,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
     - Works with any Synology model that has M.2 slots or can install a Synology PCIe M.2 card.
     - Works for M.2 drives in a M2D20, M2D18, M2D17 or E10M20-T1.
     - Works for creating a storage pool/volume spanning internal NVMe drives and NVMe drives in a Synology M.2 PCIe card.
+    - Can **NOT** be scheduled to run at boot or shut down.
 
 | Feature                  | Synology_HDD_db                         | Synology_enable_M2_volume               | Synology_M2_volume                |
 |--------------------------|-----------------------------------------|-----------------------------------------|-----------------------------------|
@@ -109,6 +111,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | Non-Synology M.2 drives  | Yes                                     | Yes                                     | Yes                               |
 | Ease of use              | Easy                                    | Easy                                    | Medium                            |
 | Prompts for answers      | No                                      | No                                      | Yes, multiple times               |
+| Can be scheduled         | Yes                                     | Yes                                     | No
 | Online Assemble required | No                                      | No                                      | DSM 7 Yes - DSM 6 No              |
 | RAID levels supported    | Basic, RAID 0, 1, 5, 6, 10, SHR, SHR-2, JBOD and RAID F1 (see Notes 1 and 2) | Basic, RAID 0, 1, SHR, JBOD and RAID F1 (see Note 1) | Basic, RAID 0, 1, 5, 6 and 10 (see Note 2) |
 | Add drive(s) to RAID     | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
