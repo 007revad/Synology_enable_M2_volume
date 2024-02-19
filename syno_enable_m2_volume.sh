@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.1.20"
+scriptver="v1.1.21"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 scriptname=syno_enable_m2_volume
@@ -158,7 +158,7 @@ if [[ $( whoami ) != "root" ]]; then
 fi
 
 # Get DSM major version
-dsm=$/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION majorversion)
+dsm=$(/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION majorversion)
 if [[ $dsm -lt "7" ]]; then
     ding
     echo "This script only works for DSM 7."
@@ -174,10 +174,10 @@ echo "$script $scriptver"
 model=$(cat /proc/sys/kernel/syno_hw_version)
 
 # Get DSM full version
-productversion=$/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION productversion)
-buildphase=$/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION buildphase)
-buildnumber=$/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION buildnumber)
-smallfixnumber=$/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION smallfixnumber)
+productversion=$(/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION productversion)
+buildphase=$(/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION buildphase)
+buildnumber=$(/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION buildnumber)
+smallfixnumber=$(/usr/syno/bin/synogetkeyvalue /etc.defaults/VERSION smallfixnumber)
 
 # Show DSM full version and model
 if [[ $buildphase == GM ]]; then buildphase=""; fi
@@ -657,7 +657,7 @@ fi
 #if [[ $dsm72 == "yes" ]]; then
 #if [[ $dsm71 == "yes" ]]; then
     smp=support_m2_pool
-    setting="$/usr/syno/bin/synogetkeyvalue "$synoinfo" "$smp")"
+    setting="$(/usr/syno/bin/synogetkeyvalue "$synoinfo" "$smp")"
     enabled=""
     if [[ ! $setting ]]; then
         # Add support_m2_pool="yes"
@@ -673,7 +673,7 @@ fi
     fi
 
     # Check if we enabled m2 volume support
-    setting="$/usr/syno/bin/synogetkeyvalue "$synoinfo" "$smp")"
+    setting="$(/usr/syno/bin/synogetkeyvalue "$synoinfo" "$smp")"
     if [[ $enabled == "yes" ]]; then
         if [[ $setting == "yes" ]]; then
             echo -e "\nEnabled M.2 volume support."
