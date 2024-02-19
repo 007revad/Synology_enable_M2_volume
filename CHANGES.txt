@@ -1,5 +1,5 @@
-v1.1.20
-- Hard coded /usr/syno/bin/ for Synology commands (to prevent $PATH issues).
+v1.1.21
+- Hard coded /usr/syno/bin/ for Synology commands (to prevent PATH issues).
 
 v1.1.19
 - Bug fix when script updates itself and user ran the script from ./scriptname.sh
