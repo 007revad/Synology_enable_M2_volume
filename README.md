@@ -46,6 +46,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | DS1522+      | R1000 | DSM 7.2-64570                  | yes |
 | DS1522+      | R1000 | DSM 7.1.1-42962 Update 4       | **No** | Use newer DSM version |
 | **21 Series** |
+| RS4021xs+    | Broadwellnk | DSM 7.2.1-69057 Update 4 | **No** | M.2 panel missing in storage manager |
 | RS4021xs+    | Broadwellnk | DSM 7.2-64570 Update 3   | **No** | M.2 panel missing in storage manager |
 | RS4021xs+    | Broadwellnk | DSM 7.2-64570            | yes |
 | RS4021xs+    | Broadwellnk | DSM 7.1.1-42962 Update 2 | yes |
