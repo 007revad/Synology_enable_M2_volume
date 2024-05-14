@@ -58,6 +58,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | DS1821+      | V1000 | DSM 7.2-64570 Update 2         | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | DS1821+      | V1000 | DSM 7.2-64570 Update 1         | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | DS1821+      | V1000 | DSM 7.2-64570                  | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1621xs+    | Broadwellnk | DSM 7.2.1-69057 Update 5 | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | DS1621xs+    | Broadwellnk | DSM 7.2.1-69057 Update 4 | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 3   | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 1   | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
