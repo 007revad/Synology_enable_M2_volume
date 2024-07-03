@@ -1,5 +1,5 @@
 v1.1.22
-- Bug fix for false "Failed to delete tmp files" log entries.
+- Bug fix for false "Failed to delete tmp files" log entries when script updates itself.
   - Bug first appeared in v1.0.9
 
 v1.1.21
