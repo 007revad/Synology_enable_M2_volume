@@ -11,7 +11,7 @@
 # sudo /volume1/scripts/syno_enable_m2_volume.sh
 #------------------------------------------------------------------------------
 
-scriptver="v1.1.21"
+scriptver="v1.1.22"
 script=Synology_enable_M2_volume
 repo="007revad/Synology_enable_M2_volume"
 scriptname=syno_enable_m2_volume
@@ -276,7 +276,7 @@ cleanup_tmp(){
     fi
 
     # Add warning to DSM log
-    if [[ -z $cleanup_err ]]; then
+    if [[ $cleanup_err ]]; then
         syslog_set warn "$script update failed to delete tmp files"
     fi
 }

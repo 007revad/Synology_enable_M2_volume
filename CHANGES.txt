@@ -1,3 +1,7 @@
+v1.1.22
+- Bug fix for false "Failed to delete tmp files" log entries.
+  - Bug first appeared in v1.0.9
+
 v1.1.21
 - Hard coded /usr/syno/bin/ for Synology commands (to prevent PATH issues).
 
