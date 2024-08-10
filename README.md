@@ -141,7 +141,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | Prompts for answers      | No                                      | No                                      | Yes, multiple times               |
 | Can be scheduled         | Yes                                     | Yes                                     | No
 | Online Assemble required | No                                      | No                                      | DSM 7 Yes - DSM 6 No              |
-| RAID levels supported    | Basic, RAID 0, 1, 5, 6, 10, SHR, SHR-2, JBOD and RAID F1 (see Notes 1 and 2) | Basic, RAID 0, 1, SHR, JBOD and RAID F1 (see Note 1) | Basic, RAID 0, 1, 5, 6 and 10 (see Note 2) |
+| RAID levels supported    | Basic, RAID 0, 1, 5, 6, 10, SHR, SHR-2, JBOD and RAID F1 (see Notes 1 and 2) | Basic, RAID 0, 1, SHR, JBOD and RAID F1 (see Note 1) | Basic, RAID 0, 1, 5, 6, 10, SHR, SHR-2, JBOD and RAID F1 (see Notes 1, 2 and 3) |
 | Add drive(s) to RAID     | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
 | Change RAID type         | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
 | RAID repair              | Yes, via Storage Manager                | Yes, via Storage Manager                | No                                |
@@ -154,6 +154,8 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 ***Note 1:*** RAID F1 requires a Synology model that supports RAID F1.
 
 ***Note 2:*** RAID 5 requires 3 or more NVMe drives. RAID 6 and 10 require 4 or more NVMe drives.
+
+***Note 3:*** Synology_M2_volume requires DSM 7 for SHR, SHR-2, JBOD and RAID F1.
 
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 
