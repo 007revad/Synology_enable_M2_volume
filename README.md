@@ -106,6 +106,10 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 ### How is this different to the Synology_M2_volume script?
 
+- **<a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a>:**
+    - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
+    - Works with most '20 series and newer model Synology NAS using DSM 7.2 or later.
+
 - **Synology_enable_M2_volume:**
     - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
     - Gives you the option of **SHR and JBOD**, as well as RAID 0, RAID 1 and Basic.
