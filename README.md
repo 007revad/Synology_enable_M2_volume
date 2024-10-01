@@ -161,6 +161,11 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 ***Note 3:*** Synology_M2_volume requires DSM 7 for SHR, SHR-2, JBOD and RAID F1.
 
+***TRIM support:***
+
+  - DSM 7.2 and later has no SSD TRIM setting for M.2 RAID 0 storage pools.
+  - DSM 7.1.1. has no SSD TRIM setting for M.2 storage pools.
+
 If you run this script then use Storage Manager to create your M.2 storage pool and volume and then run the script again with the --restore option to restore the original setting your storage pool and volume survive and the annoying notifications and warnings are gone.
 
 Your volume also survives reboots and DSM updates.
