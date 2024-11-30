@@ -157,7 +157,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | Span internal and PCIe NVMes | Yes                                     | No                                      | Yes                               |
 | What it does             | Edits a few files in DSM                | Edits 1 file in DSM                     | Creates partitons on M.2 drive(s) |
 
-***Note 1:*** RAID F1 requires a Synology model that supports RAID F1.
+***Note 1:*** RAID F1 requires a Synology model that supports RAID F1. Or you can [enable RAID F1 on other models](https://github.com/007revad/Synology_SHR_switch).
 
 ***Note 2:*** RAID 5 requires 3 or more NVMe drives. RAID 6 and 10 require 4 or more NVMe drives.
 
