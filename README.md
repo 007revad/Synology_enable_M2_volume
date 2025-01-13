@@ -26,43 +26,43 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | **E10M20-T1** | | DSM 7.2.1 and later | **No** | Use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | **M2D20**    | | DSM 7.2.1 and later | **No** | Use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | **M2D18**    | | DSM 7.2.1 and later | **No** | Use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| **E10M20-T1** | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> instead |
-| **M2D20**    | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> instead |
-| **M2D18**    | | ALL | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> instead |
+| **E10M20-T1** | | Older DSM versions | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> instead |
+| **M2D20**    | | Older DSM versions | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> instead |
+| **M2D18**    | | Older DSM versions | **No** | Use <a href="https://github.com/007revad/Synology_M2_volume">Synology_M2_volume</a> instead |
 ||
 | **23 Series** |
 | DS1823xs+    | V1000 | DSM 7.2.1 and later            | **No** | Use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS923+       | R1000 | DSM 7.2.1-69057 Update 5       | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS923+       | R1000 | DSM 7.2.1-69057 Update 4       | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS923+       | R1000 | DSM 7.2-64570 Update 3         | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS923+       | R1000 | DSM 7.2-64570                  | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS923+       | R1000 | DSM 7.1.1-42962 Update 4       | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS723+       | R1000 | DSM 7.2-64570 Update 3         | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS423+       | Geminilake | DSM 7.1.1-42962 Update 5  | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS923+       | R1000 | DSM 7.2.1-69057 Update 5       | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS923+       | R1000 | DSM 7.2.1-69057 Update 4       | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS923+       | R1000 | DSM 7.2-64570 Update 3         | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS923+       | R1000 | DSM 7.2-64570                  | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS923+       | R1000 | DSM 7.1.1-42962 Update 4       | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS723+       | R1000 | DSM 7.2-64570 Update 3         | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS423+       | Geminilake | DSM 7.1.1-42962 Update 5  | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | **22 Series** |
 | DS3622xs+    | Broadwellnk | DSM 7.2.1-69057 Update 4 | **No** | M.2 panel missing in storage manager |
 | DS3622xs+    | Broadwellnk | DSM 7.2-64570 Update 3   | **No** | M.2 panel missing in storage manager |
 | DS3622xs+    | Broadwellnk | DSM 7.2-64570            | yes |
 | DS3622xs+    | Broadwellnk | DSM 7.1.1-42962 Update 4 | yes |
 | DS3622xs+    | Broadwellnk | DSM 7.1.1-42962 Update 1 | **No** | Use newer DSM version |
-| DS1522+      | R1000 | DSM 7.2.1-69057 Update 4       | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1522+      | R1000 | DSM 7.2-64570                  | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1522+      | R1000 | DSM 7.2.1-69057 Update 4       | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1522+      | R1000 | DSM 7.2-64570                  | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | DS1522+      | R1000 | DSM 7.1.1-42962 Update 4       | **No** | Use newer DSM version |
 | **21 Series** |
 | RS4021xs+    | Broadwellnk | DSM 7.2.1-69057 Update 4 | **No** | M.2 panel missing in storage manager |
 | RS4021xs+    | Broadwellnk | DSM 7.2-64570 Update 3   | **No** | M.2 panel missing in storage manager |
 | RS4021xs+    | Broadwellnk | DSM 7.2-64570            | yes |
 | RS4021xs+    | Broadwellnk | DSM 7.1.1-42962 Update 2 | yes |
-| DS1821+      | V1000 | DSM 7.2.1-69057 Update 4       | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1821+      | V1000 | DSM 7.2-64570 Update 3         | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1821+      | V1000 | DSM 7.2-64570 Update 2         | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1821+      | V1000 | DSM 7.2-64570 Update 1         | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1821+      | V1000 | DSM 7.2-64570                  | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1621xs+    | Broadwellnk | DSM 7.2.1-69057 Update 5 | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1621xs+    | Broadwellnk | DSM 7.2.1-69057 Update 4 | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 3   | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 1   | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
-| DS1621+      | V1000 | DSM 7.2.1-69057 Update 5       | yes | Can use <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1821+      | V1000 | DSM 7.2.1-69057 Update 4       | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 3         | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 2         | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1821+      | V1000 | DSM 7.2-64570 Update 1         | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1821+      | V1000 | DSM 7.2-64570                  | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1621xs+    | Broadwellnk | DSM 7.2.1-69057 Update 5 | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1621xs+    | Broadwellnk | DSM 7.2.1-69057 Update 4 | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 3   | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1621xs+    | Broadwellnk | DSM 7.2-64570 Update 1   | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
+| DS1621+      | V1000 | DSM 7.2.1-69057 Update 5       | yes | Use only <a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a> instead |
 | DVA3221      | Denverton | DSM 7.x                    | **No** | Not working with any DSM version |
 | **20 Series** |
 | DS1520+      | Geminilake | DSM 7.2.1-69057 Update 4  | yes |
@@ -110,7 +110,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 
 - **<a href="https://github.com/007revad/Synology_HDD_db">Synology_HDD_db</a>:**
     - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
-    - Works with most '20 series and newer model Synology NAS using DSM 7.2 or later.
+    - Works with most '20 series and newer model Synology NAS using DSM 7.2 or later without needing Synology_enable_M2_volume or Synology_M2_volume.
 
 - **Synology_enable_M2_volume:**
     - Allows creating an M.2 storage pool and volume all from within Storage Manager with any brand M.2 drive.
