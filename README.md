@@ -69,6 +69,7 @@ It will work for DSM 7.2 and some models running DSM 7.1.1. As for a full list o
 | **20 Series** |
 | DS1520+      | Geminilake | DSM 7.2.1-69057 Update 4  | yes |
 | DS1520+      | Geminilake | DSM 7.2.1-69057           | yes |
+| DS920+       | Geminilake | DSM 7.4.1-90080 Update 1  | yes |
 | DS920+       | Geminilake | DSM 7.3.2-86009 Update 1  | yes |
 | DS920+       | Geminilake | DSM 7.2.2-72806 Update 2  | yes |
 | DS920+       | Geminilake | DSM 7.2.1-69057 Update 6  | yes |
